@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if profession_type == 'инженер' %}
+        <h3 align="center">Инженерные тренажеры</h3>
+        <img class="rounded mx-auto d-block"
+             src="{{ url_for('static', filename='img/engineer.png') }}"
+             alt="схема тренажёров">
+    {% elif profession_type == 'ученый' %}
+        <h3 align="center">Научные симуляторы</h3>
+        <img class="rounded mx-auto d-block"
+             src="{{ url_for('static', filename='img/scientist.png') }}"
+             alt="схема тренажёров">
+    {% endif %}
+{% endblock %}

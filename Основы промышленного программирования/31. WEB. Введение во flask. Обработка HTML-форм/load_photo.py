@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request
+from flask import Flask, url_for, request, redirect
 
 app = Flask(__name__)
 
@@ -323,7 +323,7 @@ def load_photo():
         image = request.files['file']
         with open('static/img/photo.jpg', 'wb') as fd:
             fd.write(image.stream.read())
-        return "Фото загружено"
+        return redirect('/load_photo')
 
 
 if __name__ == '__main__':

@@ -2,3 +2,11 @@ h4 {
     color: #cccccc;
     padding: 20px;
 }
+
+dt.col-sm-3 {
+    font-size: 18pt;
+}
+
+dd.col-sm-9 {
+    font-size: 18pt;
+}

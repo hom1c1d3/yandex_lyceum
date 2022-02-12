@@ -202,13 +202,74 @@ def form_astronaut_selection():
 
 @app.route('/choice/<planet_name>')
 def choice(planet_name):
-    description = {
-        'short_description': 'Эта планета близка к Земле;',
-        'description1': 'На ней много необходимых ресурсов;',
-        'description2': 'На ней есть вода и атмосфера;',
-        'description3': 'На ней есть небольшое магнитное поле;',
-        'description4': 'Наконец, она просто красива!'
+    descriptions = {
+        'Марс': {
+            'short_description': 'Эта планета близка к Земле;',
+            'description1': 'На ней много необходимых ресурсов;',
+            'description2': 'На ней есть вода и атмосфера;',
+            'description3': 'На ней есть небольшое магнитное поле;',
+            'description4': 'Наконец, она просто красива!'
+        },
+        'Меркурий': {
+            'short_description': 'ближайшая к Солнцу планета;',
+            'description1': 'Ни воды, ни воздуха;',
+            'description2': 'Дневная температура на этой планете почти +450°С;',
+            'description3': 'Поверхность покрыта кратерами и древними лавовыми потоками;',
+            'description4': 'Наконец, вы там вспыхните!'
+        },
+        'Венера': {
+            'short_description': 'Второе место от Солнца',
+            'description1': 'Нет ни воды, ни жизни;',
+            'description2': 'Ее именуют близнецом нашей планеты.',
+            'description3': 'Почти не имеет кратеров;',
+            'description4': 'Наконец, вы там ослепните!'
+        },
+        'Земля': {
+            'short_description': 'Относительно расположения к Солнцу занимает 3-е место',
+            'description1': 'Наличие воздуха, океанов и биологической жизни;',
+            'description2': 'Вокруг своей оси за 24 часа;',
+            'description3': 'Спутник - Луна;',
+            'description4': 'Наконец, тут приятненько!'
+        },
+        'Юпитер': {
+            'short_description': 'Находится на огромном расстоянии от Солнца',
+            'description1': 'Самая большая планета Солнечной системы;',
+            'description2': 'Обладает мощной атмосферой;',
+            'description3': 'Насчитывает 67 спутников;',
+            'description4': 'Наконец, тут мягонько!'
+        },
+        'Сатурн': {
+            'short_description': 'Обладает шикарной кольцевой системой',
+            'description1': 'Самая легкая из-за низкой плотности;',
+            'description2': 'Поверхности не имеет;',
+            'description3': 'Из-за наклона своей оси выражена сезонность;',
+            'description4': 'Наконец, тут вас сдует!'
+        },
+        'Уран': {
+            'short_description': 'Самая холодная',
+            'description1': 'Покрыта льдом;',
+            'description2': 'Получает очень мало тепла;',
+            'description3': 'Бывают сильные ураганы;',
+            'description4': 'Наконец, тут вас заморозит и сдует!'
+        },
+        'Нептун': {
+            'short_description': 'Самая далекая',
+            'description1': 'Синего цвета;',
+            'description2': 'Он сильно сжат и быстро вращается;',
+            'description3': 'Похож на Уран;',
+            'description4': 'Наконец, тут вас сдует с огромной скоростью!'
+        },
+        'Плутон': {
+            'short_description': 'Недавно считалась планетой Солнечной Системы',
+            'description1': 'Не способен очищать свои орбиты от инородных тел;',
+            'description2': 'Очень легкие;',
+            'description3': 'Красноватого цвета;',
+            'description4': 'Наконец, тут далековато!'
+        },
     }
+    planet = planet_name.capitalize()
+    if planet not in descriptions:
+        return "Не знаю такого"
     return """<!doctype html>
 <html lang="en">
 <head>
@@ -239,7 +300,7 @@ def choice(planet_name):
 </div>
 </div>
 </body>
-</html>""".format(planet_name=planet_name, **description)
+</html>""".format(planet_name=planet_name, **descriptions[planet])
 
 
 if __name__ == '__main__':

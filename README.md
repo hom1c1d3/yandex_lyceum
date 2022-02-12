@@ -1,2 +1,2 @@
-# yandex_lyceum
+# Yandex Lyceum
 Yandex Lyceum Curse

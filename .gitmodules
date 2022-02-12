@@ -1,0 +1,27 @@
+[submodule "Coffee"]
+	path = Основы промышленного программирования/14. Введение в репозитории. Подключение в PyCharm. Работа с удаленным репозиторием/Coffee
+	url = https://github.com/TheMerret/Coffee
+[submodule "YellowCircles"]
+	path = Основы промышленного программирования/14. Введение в репозитории. Подключение в PyCharm. Работа с удаленным репозиторием/YellowCircles
+	url = https://github.com/TheMerret/YellowCircles
+[submodule "git_repo_2"]
+	path = Основы промышленного программирования/15. Основные команды при одиночной работе с Git/git_repo_2
+	url = https://github.com/TheMerret/git_repo_2
+[submodule "git_lab1_lesson2_human"]
+	path = Основы промышленного программирования/15. Основные команды при одиночной работе с Git/git_lab1_lesson2
+	url = https://github.com/TheMerret/human
+[submodule "git_lab1_lesson2"]
+	path = Основы промышленного программирования/19. Совместная работа над проектом, основные понятия и команды. Работа с репозиториями в среде разработки/git_lab1_lesson2
+	url = https://github.com/TheMerret/git_lab1_lesson2
+[submodule "gitflow"]
+	path = Основы промышленного программирования/19. Совместная работа над проектом, основные понятия и команды. Работа с репозиториями в среде разработки/git_lab2_lesson2
+	url = https://github.com/TheMerret/gitflow
+[submodule "MiniYandexMaps"]
+	path = Основы промышленного программирования/MiniYandexMaps
+	url = https://github.com/Milk-Gang123/MiniYandexMaps
+[submodule "QtAnimatedGraphs"]
+	path = Основы промышленного программирования/QtAnimatedGraphs
+	url = https://github.com/TheMerret/QtAnimatedGraphs
+[submodule "RiverDescent"]
+	path = Основы промышленного программирования/RiverDescent
+	url = https://github.com/TheMerret/RiverDescent

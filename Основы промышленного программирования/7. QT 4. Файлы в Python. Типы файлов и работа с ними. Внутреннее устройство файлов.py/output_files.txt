@@ -1,0 +1,40 @@
+chard.bmp
+liver.bmp
+orange.bmp
+----------
+Summary: 873 GB
+
+garlic.jpg
+----------
+Summary: 761 GB
+
+almond.pas
+jelly.pas
+marshmallow.pas
+muffin.pas
+----------
+Summary: 1 TB
+
+macadamia.py
+----------
+Summary: 291 MB
+
+honey.rar
+sturgeon.rar
+----------
+Summary: 731 GB
+
+gelato.txt
+peanut_butter.txt
+----------
+Summary: 291 MB
+
+dried_milk.xlsx
+----------
+Summary: 851 KB
+
+hazelnut.zip
+lentils.zip
+----------
+Summary: 421 MB
+

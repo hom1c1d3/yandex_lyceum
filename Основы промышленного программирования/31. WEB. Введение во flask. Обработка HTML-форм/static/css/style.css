@@ -1,0 +1,17 @@
+h1.promotion_header {
+    color: #ff0000
+}
+
+.form-group {
+    line-height: inherit;
+}
+
+form.login_form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px;
+    background-color: #FBDAB8;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}

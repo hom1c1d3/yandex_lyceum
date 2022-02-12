@@ -1,0 +1,16 @@
+orange.bmp 161 GB
+gelato.txt 31 B
+liver.bmp 571 MB
+peanut_butter.txt 291 MB
+almond.pas 61 GB
+dried_milk.xlsx 851 KB
+garlic.jpg 761 GB
+hazelnut.zip 611 B
+lentils.zip 421 MB
+marshmallow.pas 411 MB
+sturgeon.rar 121 B
+macadamia.py 291 MB
+chard.bmp 711 GB
+honey.rar 731 GB
+jelly.pas 501 GB
+muffin.pas 701 GB

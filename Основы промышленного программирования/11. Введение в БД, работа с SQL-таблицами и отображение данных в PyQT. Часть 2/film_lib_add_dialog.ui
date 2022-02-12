@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Добавить элемент</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="labelTitle">
+     <property name="text">
+      <string>Называние</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="lineEditTitle"/>
+   </item>
+   <item row="2" column="1">
+    <widget class="QComboBox" name="comboBoxGenre"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="labelYear">
+     <property name="text">
+      <string>Год выпуска</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="lineEditYear"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="labelGenre">
+     <property name="text">
+      <string>Жанр</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Длина</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="lineEditDuration"/>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="btnAdd">
+     <property name="text">
+      <string>Добавить</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

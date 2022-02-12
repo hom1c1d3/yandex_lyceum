@@ -10,3 +10,8 @@ dt.col-sm-3 {
 dd.col-sm-9 {
     font-size: 18pt;
 }
+
+h1.access {
+    background:url("/static/img/emblem.png") no-repeat;
+    padding-left: 150px
+}

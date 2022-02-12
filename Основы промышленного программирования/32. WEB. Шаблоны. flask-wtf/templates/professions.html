@@ -1,0 +1,26 @@
+{% set title = "MarsOne" %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if list_type not in ["ol", "ul"] %}
+        <div class="alert alert-danger" role="alert">
+            Недопустииое значение: {{ list_type }}. Возможные варианты ol, ul.
+        </div>
+    {% else %}
+        <h3>Список профессий</h3>
+        {% if list_type == "ol" %}
+            <ol>
+                {% for profession in professions %}
+                    <li>{{ profession }}</li>
+                {% endfor %}
+            </ol>
+        {% elif list_type == "ul" %}
+            <ul>
+                {% for profession in professions %}
+                <li>{{ profession }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+{% endblock %}

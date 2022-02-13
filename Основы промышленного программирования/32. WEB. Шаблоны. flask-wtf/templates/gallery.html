@@ -36,14 +36,17 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <form class="login_form" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="photo">Приложите фотографию</label>
-            <input type="file" class="form-control-file" id="photo" name="file">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Загрузить</button>
-        </div>
+    <form class="login_form" method="post" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.photo.label }}<br>
+            {{ form.photo(class="form-control-file") }}<br>
+            {% for error in form.photo.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
     </form>
 </div>
 {% endblock %}

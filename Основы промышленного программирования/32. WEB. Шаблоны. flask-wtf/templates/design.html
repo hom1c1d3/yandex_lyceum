@@ -1,0 +1,34 @@
+{% set title = "MarsOne" %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 align="center">Оформление каюты</h2>
+    <table class="table table-bordered design" style="table-layout: fixed;">
+        <thead class="table-secondary">
+            <tr>
+                <th scope="col">Цвет сцен</th>
+                <th scope="col">Эмблема</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% if sex == "female" and age >= 21 %}
+                    <td bgcolor="#FFA07A"></td>
+                    <td><img src="{{ url_for('static', filename='img/alien_old.png') }}" alt="Эмблема"></td>
+                {% elif sex == "female" and age < 21 %}
+                    <td bgcolor="#FF4500"></td>
+                    <td><img src="{{ url_for('static', filename='img/alien_yng.png') }}" alt="Эмблема"></td>
+                {% elif sex == "male" and age >= 21 %}
+                    <td bgcolor="#007FF0"></td>
+                    <td><img src="{{ url_for('static', filename='img/alien_old.png') }}" alt="Эмблема"></td>
+                {% elif sex == "male" and age < 21 %}
+                    <td bgcolor="#B0C4DE"></td>
+                    <td><img src="{{ url_for('static', filename='img/alien_yng.png') }}" alt="Эмблема"></td>
+                {% else %}
+                    <td colspan="2" class="table-danger">Неверные параметры</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

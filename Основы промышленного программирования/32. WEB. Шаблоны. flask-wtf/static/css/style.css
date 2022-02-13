@@ -15,3 +15,7 @@ h1.access {
     background:url("/static/img/emblem.png") no-repeat;
     padding-left: 150px
 }
+
+table.design td, th {
+    text-align: center;
+}

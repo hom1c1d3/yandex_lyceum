@@ -1,0 +1,22 @@
+{% set title = "MarsOne" %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+    {% set label = "Каюта №" %}
+    <dl class="row">
+        {% for astro in astronauts %}
+            <dt class="col-sm-3">{{ astro }}</dt>
+            {% if loop.first %}
+                <dd class="col-sm-9">
+                    <dl class="row">
+                      <dd class="col-sm-4">{{ label }} {{ loop.index }}</dd>
+                      <dd class="col-sm-8">капитан корабля</dd>
+                    </dl>
+                </dd>
+            {% else %}
+                <dd class="col-sm-9">{{ label }} {{ loop.index }}</dd>
+            {% endif %}
+        {% endfor %}
+    </dl>
+{% endblock %}

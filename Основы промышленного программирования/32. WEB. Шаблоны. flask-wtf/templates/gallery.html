@@ -1,0 +1,49 @@
+{% set title = "Красная планета" %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container w-50 mx-auto ">
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            {% for path in image_paths %}
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="{{ loop.index0 }}" class="active" aria-current="true"
+                    aria-label="Slide {{ loop.index }}"></button>
+            {% endfor %}
+        </div>
+        <div class="carousel-inner" style="width:100%; height: 500px !important;">
+            {% for path in image_paths %}
+                {% if loop.first %}
+                    {% set active = 'active' %}
+                {% endif %}
+                <div class="carousel-item {{ active }}">
+                    <img src="{{ url_for('static', filename=path) }}" class="d-block w-100"
+                         alt="Марс">
+                </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <form class="login_form" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="photo">Приложите фотографию</label>
+            <input type="file" class="form-control-file" id="photo" name="file">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Загрузить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

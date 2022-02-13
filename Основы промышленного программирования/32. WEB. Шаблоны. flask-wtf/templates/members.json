@@ -1,0 +1,34 @@
+{
+  "members": [
+    {
+      "name": "Ридли",
+      "surname": "Скотт",
+      "image_path": "img/alien_old.png",
+      "professions": [
+        "киберинженер",
+        "пилот",
+        "врач"
+      ]
+    },
+    {
+      "name": "Энди",
+      "surname": "Уир",
+      "image_path": "img/robot.png",
+      "professions": [
+        "специалист по радиационной защите",
+        "астрогеолог"
+      ]
+    },
+    {
+      "name": "Марк",
+      "surname": "Уотни",
+      "image_path": "img/alien_yng.png",
+      "professions": [
+        "строитель",
+        "оператор марсохода",
+        "пилот дронов",
+        "экзобиолог"
+      ]
+    }
+  ]
+}

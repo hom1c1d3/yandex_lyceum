@@ -1,0 +1,114 @@
+<div class="y4ef2d--task-description-opener__sideblock"><section class="y6c2ac--task-description"><header class="y6c2ac--task-description__header"><h1 class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">Утконос</h1></header><div class="y6c2ac--task-description__content-wrapper"><article class="y6c2ac--task-description__content"><p></p>
+  <div class="problem-statement">
+    <div class="header">
+      <h1 class="title">Утконос</h1>
+      <table>
+        <tbody>
+        <tr class="time-limit">
+          <td class="property-title">Ограничение времени</td>
+          <td>10&nbsp;секунд</td>
+        </tr>
+        <tr class="memory-limit">
+          <td class="property-title">Ограничение памяти</td>
+          <td>64Mb</td>
+        </tr>
+        <tr class="input-file">
+          <td class="property-title">Ввод</td>
+          <td colspan="1">стандартный ввод</td>
+        </tr>
+        <tr class="output-file">
+          <td class="property-title">Вывод</td>
+          <td colspan="1">dishes.csv</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2></h2>
+    <div class="legend"><!--l. 47-->
+      <p style="text-indent: 0em;">Солнце клонилось к закату, эвкалипты отбрасывали длинные черные тени, небо приобрело зеленоватый оттенок. Со стороны реки послышался всплеск. <br>Утконос прекратил жевать что-то, напоминающее шланг (на самом деле это был австралийский червяк) и оглянулся. <br>– Угоститесь червячком, – любезно предложил он. <br> <!--l. 51--></p>
+      <p style="text-indent: 0em;">Напишите программу, выбирающую подходящие каждому виду угощения. <br> <!--l. 53--></p>
+      <p style="text-indent: 0em;">В файле <span style="font-weight: bold;">treats.json </span>находятся параметры сервера и вид животных для отбора угощений: <br><span style="font-style: italic;">server </span>– адрес сервера; <br><span style="font-style: italic;">port </span>– порт; <br><span style="font-style: italic;">sort </span>– вид животных. <br> <!--l. 58--></p>
+      <p style="text-indent: 0em;">На сервере записаны данные о животных в виде списка словарей: <br><span style="font-style: italic;">animal </span>– животное; <br><span style="font-style: italic;">sort </span>– вид; <br><span style="font-style: italic;">habitat </span>– место обитания; <br><span style="font-style: italic;">meal </span>– что ест (список строк). <br> <!--l. 64--></p>
+      <p style="text-indent: 0em;">Получив все данные с сервера, нужно выбрать, чем питаются животные требуемого вида, и записать эту информацию в файл <span style="font-weight: bold;">dishes.csv </span>в алфавитном порядке названий, затем еды. <br>Заголовки файла (разделители – двоеточие): <br><span style="font-style: italic;">животное, место обитания, еда </span><br><span style="font-style: italic;">animal, habitat, meal </span></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <h2>Пример</h2>
+    <table class="sample-tests">
+      <thead>
+      <tr>
+        <th>Ввод</th>
+        <th>Вывод</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+<pre># Содержимое файла treats.json
+{
+   "server": "127.0.0.1",
+   "port": "5000",
+   "sort": "bird"
+}
+# Данные на сервере
+[
+  {
+    "animal": "platypus",
+    "sort": "mammal",
+    "habitat": "Australia",
+    "meal": [
+      "worm"
+    ]
+  },
+  {
+    "animal": "penguin",
+    "sort": "bird",
+    "habitat": "Antarctica",
+    "meal": [
+      "fish",
+      "plankton"
+    ]
+  },
+  {
+    "animal": "eagle",
+    "sort": "bird",
+    "habitat": "Australia",
+    "meal": [
+      "mouse",
+      "rabbit"
+    ]
+  },
+  {
+    "animal": "straus",
+    "sort": "bird",
+    "habitat": "Africa",
+    "meal": [
+      "insect",
+      "grain",
+      "worm"
+    ]
+  }
+]
+</pre>
+        </td>
+        <td>
+<pre>animal:habitat:meal
+eagle:Australia:mouse
+eagle:Australia:rabbit
+penguin:Antarctica:fish
+penguin:Antarctica:plankton
+straus:Africa:grain
+straus:Africa:insect
+straus:Africa:worm
+</pre>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <h2>Примечания</h2>
+    <div class="notes"><!--l. 70-->
+      <p style="text-indent: 0em;">JSON файл из условия можно загрузить <a href="https://lyceum.s3.yandex.net/content/sr/sr3d2/treats.json">здесь</a></p>
+    </div>
+  </div></article></div></section></div>

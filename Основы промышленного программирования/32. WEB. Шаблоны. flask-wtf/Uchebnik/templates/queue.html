@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Очередь</title>
+</head>
+<body>
+<h1>Кто стоит в очереди?</h1>
+{% set user_list = ["Ваня", "Петя", "Юра", "Кирилл"] %}
+<ul>
+    {% for user in user_list %}
+        <li>
+            {{ loop.index }} - {{ user }}
+            (его индекс: {{ loop.index - 1 }})
+            {% if loop.first %}
+                стоит первый очереди
+            {% elif loop.last %}
+                стоит последний в очереди
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

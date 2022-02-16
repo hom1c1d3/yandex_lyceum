@@ -1,0 +1,123 @@
+<div class="y4ef2d--task-description-opener__sideblock"><section class="y6c2ac--task-description"><header class="y6c2ac--task-description__header"><h1 class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">Морской слон</h1></header><div class="y6c2ac--task-description__content-wrapper"><article class="y6c2ac--task-description__content"><p></p>
+    <div class="problem-statement">
+        <div class="header">
+            <h1 class="title">Морской слон</h1>
+            <table>
+                <tbody>
+                <tr class="time-limit">
+                    <td class="property-title">Ограничение времени</td>
+                    <td>1&nbsp;секунда</td>
+                </tr>
+                <tr class="memory-limit">
+                    <td class="property-title">Ограничение памяти</td>
+                    <td>64Mb</td>
+                </tr>
+                <tr class="input-file">
+                    <td class="property-title">Ввод</td>
+                    <td colspan="1">стандартный ввод</td>
+                </tr>
+                <tr class="output-file">
+                    <td class="property-title">Вывод</td>
+                    <td colspan="1">polar_zoo.json</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2></h2>
+        <div class="legend">
+            <p>Зеленое море катило на него медленные валы, а волны покруче разбивались об огромные валуны с плеском. <br>Внезапно один из валунов испустил громкий рев и поднялся. Это оказался трехметровый морской слон, он был весь в морщинах и складках, а между водянистыми глазками покачивался длинный нос, похожий на слоновий, только сильно изуродованный. </p>
+            <p>Напишите программу для выбора животных по указанным критериям.</p>
+        </div>
+        <h2>Формат ввода</h2>
+        <div class="input-specification">
+            <p>Через аргументы командной строки передаются: <br>хост и порт сервера; <br>произвольное количество видов животных. <br>Также могут быть переданы: <br><span style="font-style: italic;">–min_amount</span> – наименьшее количество животных, по умолчанию 0; <br><span style="font-style: italic;">–length</span> – наибольшая длина названия местности обитания, по умолчанию 20. </p>
+            <p>На сервере находится список словарей с ключами: <br><span style="font-style: italic;">kind</span> – вид животных; <br><span style="font-style: italic;">name</span> – название; <br><span style="font-style: italic;">habitat</span> – место обитания; <br><span style="font-style: italic;">amount</span> – количество.</p>
+        </div>
+        <h2>Формат вывода</h2>
+        <div class="output-specification">
+            <p>Получив <span style="font-weight: bold;">все</span> данные с сервера, отберите животных по условиям из аргументов командной строки: вид находится среди указанных, количество не меньше значения аргумента, длина названия местности обитания не больше указанной. Запишите в файл <span style="font-weight: bold;">polar_zoo.json</span> полученную информацию в виде словаря с ключами: <br>местность – список списков <span>[<span style="font-style: italic;">название, количество</span>]</span>. <br>Списки в значениях по ключам должны быть отсортированы по возрастанию количества, затем по алфавиту названий.</p>
+        </div>
+        <h2>Пример</h2>
+        <table class="sample-tests">
+            <thead>
+            <tr>
+                <th>Ввод</th>
+                <th>Вывод</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+<pre># Пример запуска
+spython3 solution.py 127.0.0.1 5000 marine bird --min_amount 201
+# Данные на сервере
+[
+  {
+    "kind": "marine",
+    "name": "seal",
+    "habitat": "Barrow",
+    "amount": 400
+  },
+  {
+    "kind": "bird",
+    "name": "polar owl",
+    "habitat": "Greenland",
+    "amount": 800
+  },
+  {
+    "kind": "marine",
+    "name": "sea hare",
+    "habitat": "Baffin Sea",
+    "amount": 200
+  },
+  {
+    "kind": "bird",
+    "name": "white partridge",
+    "habitat": "Baffin Sea",
+    "amount": 400
+  },
+  {
+    "kind": "predator",
+    "name": "seal",
+    "habitat": "Barrow",
+    "amount": 400
+  },
+  {
+    "kind": "marine",
+    "name": "narwhal",
+    "habitat": "Greenland",
+    "amount": 800
+  }
+]
+</pre>
+                </td>
+                <td>
+<pre>{
+    "Barrow": [
+        [
+            "seal",
+            400
+        ]
+    ],
+    "Greenland": [
+        [
+            "narwhal",
+            800
+        ],
+        [
+            "polar owl",
+            800
+        ]
+    ],
+    "Baffin Sea": [
+        [
+            "white partridge",
+            400
+        ]
+    ]
+}</pre>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div></article></div></section></div>

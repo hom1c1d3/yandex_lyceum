@@ -1,0 +1,278 @@
+{
+  'response': {
+    'GeoObjectCollection': {
+      'metaDataProperty': {
+        'GeocoderResponseMetaData': {
+          'request': 'Якутск',
+          'results': '10',
+          'found': '4'
+        }
+      },
+      'featureMember': [
+        {
+          'GeoObject': {
+            'metaDataProperty': {
+              'GeocoderMetaData': {
+                'precision': 'other',
+                'text': 'Россия, Республика Саха (Якутия), Якутск',
+                'kind': 'locality',
+                'Address': {
+                  'country_code': 'RU',
+                  'formatted': 'Россия, Республика Саха (Якутия), Якутск',
+                  'Components': [
+                    {
+                      'kind': 'country',
+                      'name': 'Россия'
+                    },
+                    {
+                      'kind': 'province',
+                      'name': 'Дальневосточный федеральный округ'
+                    },
+                    {
+                      'kind': 'province',
+                      'name': 'Республика Саха (Якутия)'
+                    },
+                    {
+                      'kind': 'area',
+                      'name': 'городской округ Якутск'
+                    },
+                    {
+                      'kind': 'locality',
+                      'name': 'Якутск'
+                    }
+                  ]
+                },
+                'AddressDetails': {
+                  'Country': {
+                    'AddressLine': 'Россия, Республика Саха (Якутия), Якутск',
+                    'CountryNameCode': 'RU',
+                    'CountryName': 'Россия',
+                    'AdministrativeArea': {
+                      'AdministrativeAreaName': 'Республика Саха (Якутия)',
+                      'SubAdministrativeArea': {
+                        'SubAdministrativeAreaName': 'городской округ Якутск',
+                        'Locality': {
+                          'LocalityName': 'Якутск'
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            'name': 'Якутск',
+            'description': 'Республика Саха (Якутия), Россия',
+            'boundedBy': {
+              'Envelope': {
+                'lowerCorner': '129.523724 61.909348',
+                'upperCorner': '129.849175 62.180534'
+              }
+            },
+            'Point': {
+              'pos': '129.732178 62.027221'
+            }
+          }
+        },
+        {
+          'GeoObject': {
+            'metaDataProperty': {
+              'GeocoderMetaData': {
+                'precision': 'other',
+                'text': 'Объединенные Арабские Эмираты, эмират Дубай, Джумейра, остров Булун-Якутск-Оленёк',
+                'kind': 'other',
+                'Address': {
+                  'country_code': 'AE',
+                  'formatted': 'Объединенные Арабские Эмираты, эмират Дубай, Джумейра, остров Булун-Якутск-Оленёк',
+                  'Components': [
+                    {
+                      'kind': 'country',
+                      'name': 'Объединенные Арабские Эмираты'
+                    },
+                    {
+                      'kind': 'province',
+                      'name': 'эмират Дубай'
+                    },
+                    {
+                      'kind': 'district',
+                      'name': 'Джумейра'
+                    },
+                    {
+                      'kind': 'other',
+                      'name': 'остров Булун-Якутск-Оленёк'
+                    }
+                  ]
+                },
+                'AddressDetails': {
+                  'Country': {
+                    'AddressLine': 'Объединенные Арабские Эмираты, эмират Дубай, Джумейра, остров Булун-Якутск-Оленёк',
+                    'CountryNameCode': 'AE',
+                    'CountryName': 'Объединенные Арабские Эмираты',
+                    'AdministrativeArea': {
+                      'AdministrativeAreaName': 'эмират Дубай',
+                      'Locality': {
+                        'DependentLocality': {
+                          'DependentLocalityName': 'Джумейра',
+                          'Premise': {
+                            'PremiseName': 'остров Булун-Якутск-Оленёк'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            'name': 'остров Булун-Якутск-Оленёк',
+            'description': 'Джумейра, эмират Дубай, Объединенные Арабские Эмираты',
+            'boundedBy': {
+              'Envelope': {
+                'lowerCorner': '55.168416 25.246275',
+                'upperCorner': '55.171866 25.250564'
+              }
+            },
+            'Point': {
+              'pos': '55.170105 25.248799'
+            }
+          }
+        },
+        {
+          'GeoObject': {
+            'metaDataProperty': {
+              'GeocoderMetaData': {
+                'precision': 'other',
+                'text': 'Россия, Республика Саха (Якутия), городской округ Якутск, аэропорт Якутск имени Платона Ойунского',
+                'kind': 'airport',
+                'Address': {
+                  'country_code': 'RU',
+                  'formatted': 'Россия, Республика Саха (Якутия), городской округ Якутск, аэропорт Якутск имени Платона Ойунского',
+                  'Components': [
+                    {
+                      'kind': 'country',
+                      'name': 'Россия'
+                    },
+                    {
+                      'kind': 'province',
+                      'name': 'Дальневосточный федеральный округ'
+                    },
+                    {
+                      'kind': 'province',
+                      'name': 'Республика Саха (Якутия)'
+                    },
+                    {
+                      'kind': 'area',
+                      'name': 'городской округ Якутск'
+                    },
+                    {
+                      'kind': 'airport',
+                      'name': 'аэропорт Якутск имени Платона Ойунского'
+                    }
+                  ]
+                },
+                'AddressDetails': {
+                  'Country': {
+                    'AddressLine': 'Россия, Республика Саха (Якутия), городской округ Якутск, аэропорт Якутск имени Платона Ойунского',
+                    'CountryNameCode': 'RU',
+                    'CountryName': 'Россия',
+                    'AdministrativeArea': {
+                      'AdministrativeAreaName': 'Республика Саха (Якутия)',
+                      'SubAdministrativeArea': {
+                        'SubAdministrativeAreaName': 'городской округ Якутск',
+                        'Locality': {
+                          'DependentLocality': {
+                            'DependentLocalityName': 'аэропорт Якутск имени Платона Ойунского'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            'name': 'аэропорт Якутск имени Платона Ойунского',
+            'description': 'городской округ Якутск, Республика Саха (Якутия), Россия',
+            'boundedBy': {
+              'Envelope': {
+                'lowerCorner': '129.742455 62.07298',
+                'upperCorner': '129.801878 62.109909'
+              }
+            },
+            'Point': {
+              'pos': '129.750225 62.086599'
+            }
+          }
+        },
+        {
+          'GeoObject': {
+            'metaDataProperty': {
+              'GeocoderMetaData': {
+                'precision': 'other',
+                'text': 'Россия, Республика Саха (Якутия), Якутск, пристань Якутск',
+                'kind': 'other',
+                'Address': {
+                  'country_code': 'RU',
+                  'formatted': 'Россия, Республика Саха (Якутия), Якутск, пристань Якутск',
+                  'Components': [
+                    {
+                      'kind': 'country',
+                      'name': 'Россия'
+                    },
+                    {
+                      'kind': 'province',
+                      'name': 'Дальневосточный федеральный округ'
+                    },
+                    {
+                      'kind': 'province',
+                      'name': 'Республика Саха (Якутия)'
+                    },
+                    {
+                      'kind': 'area',
+                      'name': 'городской округ Якутск'
+                    },
+                    {
+                      'kind': 'locality',
+                      'name': 'Якутск'
+                    },
+                    {
+                      'kind': 'other',
+                      'name': 'пристань Якутск'
+                    }
+                  ]
+                },
+                'AddressDetails': {
+                  'Country': {
+                    'AddressLine': 'Россия, Республика Саха (Якутия), Якутск, пристань Якутск',
+                    'CountryNameCode': 'RU',
+                    'CountryName': 'Россия',
+                    'AdministrativeArea': {
+                      'AdministrativeAreaName': 'Республика Саха (Якутия)',
+                      'SubAdministrativeArea': {
+                        'SubAdministrativeAreaName': 'городской округ Якутск',
+                        'Locality': {
+                          'LocalityName': 'Якутск',
+                          'Premise': {
+                            'PremiseName': 'пристань Якутск'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            'name': 'пристань Якутск',
+            'description': 'Якутск, Республика Саха (Якутия), Россия',
+            'boundedBy': {
+              'Envelope': {
+                'lowerCorner': '129.738556 62.030828',
+                'upperCorner': '129.804439 62.061757'
+              }
+            },
+            'Point': {
+              'pos': '129.771497 62.046297'
+            }
+          }
+        }
+      ]
+    }
+  }
+}

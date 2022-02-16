@@ -1,0 +1,30 @@
+{
+  "mammal": {
+    "lays eggs": [
+      "platypus"
+    ],
+    "tail": [
+      "beaver",
+      "cow"
+    ],
+    "feed milk": [
+      "cow",
+      "platypus"
+    ]
+  },
+  "insect": {
+    "lays eggs": [
+      "butterfly",
+      "fly"
+    ]
+  },
+  "reptile": {
+    "tail": [
+      "snake"
+    ],
+    "lays eggs": [
+      "alligator",
+      "snake"
+    ]
+  }
+}

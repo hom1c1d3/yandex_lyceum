@@ -4,4 +4,6 @@
 *$py.class
 
 
-**/.idea
+**/.idea/
+
+**/venv*/

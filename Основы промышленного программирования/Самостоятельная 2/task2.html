@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="Sideblock-Content"><div class="sideblock sideblock_size_large"><button type="button" class="Button2 Button2_size_l Button2_theme_clear Button2_view_lyceum sideblock__cross" autocomplete="off"><span data-lego="react" class="icon icon_type_close-thin icon_size_l Button2-Icon"></span></button><div class="y4ef2d--task-description-opener__sideblock"><section class="y6c2ac--task-description"><header class="y6c2ac--task-description__header"><h1 class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">Голландская селедка</h1></header><div class="y6c2ac--task-description__content-wrapper"><article class="y6c2ac--task-description__content"><p></p>
+    <div class="problem-statement">
+        <div class="header">
+            <h1 class="title">Голландская селедка</h1>
+            <table>
+                <tbody>
+                <tr class="time-limit">
+                    <td class="property-title">Ограничение времени</td>
+                    <td>1&nbsp;секунда</td>
+                </tr>
+                <tr class="memory-limit">
+                    <td class="property-title">Ограничение памяти</td>
+                    <td>64Mb</td>
+                </tr>
+                <tr class="input-file">
+                    <td class="property-title">Ввод</td>
+                    <td colspan="1">стандартный ввод или input.txt</td>
+                </tr>
+                <tr class="output-file">
+                    <td class="property-title">Вывод</td>
+                    <td colspan="1">стандартный вывод или output.txt</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2></h2>
+        <div class="legend"><!--l. 47-->
+            <p style="text-indent: 0em;">У них там селедочное дело поставлено на широкую ногу. И вот что в этом деле особенно поразительно: голландцы, видимо, знают какой-то секрет. Вот шотландцы, например, пробовали ловить селедок. Закинули сети, подняли, и обнаружилось, что селедки-то попались все, как есть, шотландские. <br>Норвежцы тоже пытались. Тоже забросили сети, подняли, посмотрели – есть селедка, да только все сплошь норвежская. <br>А голландцы ловят и ловят уж который год, и им все попадается голландская селедка различных сортов. <br>В базе данных <span style="font-weight: bold;">dutch_herring.db </span>в таблице <span style="font-weight: bold;">Fish </span>находится вся информация о селедках: <br><span style="font-style: italic;">id, чья селедка, размер, вес, количество </span><br><span style="font-style: italic;">id, type, size, weight, quantity </span><br> <br><img alt="PIC" src="https://contest.yandex.ru/testsys/statement-image?imageId=4b2b0517cc5cae6dffbdbd6a1f07ff5594fad475266b5f3571f691aa5feb627f"><br> <!--l. 57--></p>
+            <p style="text-indent: 0em;">В консоль вводится минимальный размер и максимальный вес одной кондиционной селедки. Напишите программу, которая выберет подходящих селедок и запишет в переменную <span style="font-weight: bold;">choice </span>словарь с ключами: <br>типы (<span style="font-style: italic;">types</span>) – список типов кондиционных селедок без повторений в алфавитном порядке; <br>размеры (<span style="font-style: italic;">sizes</span>) – список подходящих размеров без повторений в порядке убывания; <br>общее количество (<span style="font-style: italic;">total</span>) – сумма количеств выбранных селедок.</p>
+            <p></p>
+        </div>
+        <h3>Пример 1</h3>
+        <table class="sample-tests">
+            <thead>
+            <tr>
+                <th>Ввод</th>
+                <th>Вывод</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+<pre>3
+30
+</pre>
+                </td>
+                <td>
+<pre>{
+    "types": [
+        "dutch",
+        "german",
+        "norwegian",
+        "swedish"
+    ],
+    "sizes": [
+        4,
+        3
+    ],
+    "total": 375
+}
+</pre>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h3>Пример 2</h3>
+        <table class="sample-tests">
+            <thead>
+            <tr>
+                <th>Ввод</th>
+                <th>Вывод</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+<pre>2
+15
+</pre>
+                </td>
+                <td>
+<pre>{
+    "types": [
+        "dutch",
+        "german",
+        "irish",
+        "scottish"
+    ],
+    "sizes": [
+        4,
+        3,
+        2
+    ],
+    "total": 265
+}
+</pre>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Примечания</h2>
+        <div class="notes">Файл из примеров можно скачать <a href="https://lyceum.s3.yandex.net/content/sr/dutch_herring.db">здесь</a></div>
+    </div></article></div></section></div></div></div>
+</body>
+</html>

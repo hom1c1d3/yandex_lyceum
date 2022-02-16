@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="Sideblock-Content"><div class="sideblock sideblock_size_large"><button type="button" class="Button2 Button2_size_l Button2_theme_clear Button2_view_lyceum sideblock__cross" autocomplete="off"><span data-lego="react" class="icon icon_type_close-thin icon_size_l Button2-Icon"></span></button><div class="y4ef2d--task-description-opener__sideblock"><section class="y6c2ac--task-description"><header class="y6c2ac--task-description__header"><h1 class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">Важное открытие</h1></header><div class="y6c2ac--task-description__content-wrapper"><article class="y6c2ac--task-description__content"><div class="problem-statement">
+    <div class="header">
+        <h1 class="title">Важное открытие</h1>
+        <table class="sample-tests">
+            <tbody>
+            <tr class="time-limit">
+                <td class="property-title">Ограничение времени</td>
+                <td>1&nbsp;секунда</td>
+            </tr>
+            <tr class="memory-limit">
+                <td class="property-title">Ограничение памяти</td>
+                <td>64Mb</td>
+            </tr>
+            <tr class="input-file">
+                <td class="property-title">Ввод</td>
+                <td colspan="1">стандартный ввод</td>
+            </tr>
+            <tr class="output-file">
+                <td class="property-title">Вывод</td>
+                <td colspan="1">стандартный вывод</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2></h2>
+    <div class="legend"><!--l. 47-->
+        <p style="text-indent: 0em;">Я углубился в изучение этого вопроса, и тут мне совершенно неожиданно удалось сделать одно важное открытие. После ряда наблюдений я установил с исключительной точностью, что каждая селедка – рыба, но не каждая рыба – селедка. <br>А ведь это что значит? <br>Это значит, что незачем тратить огромные средства, незачем набивать селедок в бочки, грузить на корабли и выгружать снова, где это понадобится. Не проще ли согнать селедок в табун или в стадо – как хотите назовите – и гнать живьем до места назначения? <br>Сколько еще открытий можно сделать, всего лишь присмотревшись повнимательнее к обыденным вещам, например, к селедкам? Напишите функцию для выбора того, чего еще не было. <br> <!--l. 53--></p>
+        <p style="text-indent: 0em;">В файле <span style="font-weight: bold;">ﬁsh_base.db </span>находится рыбная база данных со структурой, показанной на рисунке. <br> <br><img alt="PIC" src="https://contest.yandex.ru/testsys/statement-image?imageId=39f68ee52c3602e48b08c2c888523de3614074c296710f35c7723c0b7a942184"><br> <!--l. 57--></p>
+        <p style="text-indent: 0em;"><span style="font-weight: bold;">Fish </span>(Рыбы) <br><span style="font-style: italic;">id, название, размер, id_свойства </span><br><span style="font-style: italic;">id, name, size, property_id </span><br><span style="font-weight: bold;">Properties </span>(Свойства) <br><span style="font-style: italic;">id, свойство (жирная, омега-3, нежирная, питательная, белковая, фосфорная,</span> <span style="font-style: italic;">светится, ценная кожа) </span><br><span style="font-style: italic;">id, property </span><br> <!--l. 64--></p>
+        <p style="text-indent: 0em;">В функцию <span style="font-weight: bold;">importance() </span>передается произвольное количество свойств. Функция находит в БД рыб с хотя бы одним свойством из аргументов функции. Найденных рыб нужно записать в файл <span style="font-weight: bold;">discovery.csv </span>в порядке убывания размера рыбы, в случае одинакового в порядке названий характеристик. Заголовки файла (разделитель точка с запятой): <br><span style="font-style: italic;">название рыбы, размер, характеристика </span><br><span style="font-style: italic;">ﬁsh, size, property</span></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <h3>Пример 1</h3>
+    <table class="sample-tests">
+        <thead>
+        <tr>
+            <th>Ввод</th>
+            <th>Вывод</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+<pre>v = ["omega-3"]
+importance(*v)
+</pre>
+            </td>
+            <td>
+<pre>fish;size;property
+pollock;45;omega-3
+hake;32;omega-3
+herring;20;omega-3
+</pre>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Пример 2</h3>
+    <table class="sample-tests">
+        <thead>
+        <tr>
+            <th>Ввод</th>
+            <th>Вывод</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+<pre>v = ["glowing", "protein", "low-fat"]
+importance(*v)
+</pre>
+            </td>
+            <td>
+<pre>fish;size;property
+hake;32;glowing
+hake;25;low-fat
+herring;20;protein
+</pre>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>Примечания</h2>
+    <div class="notes">Файл из примеров можно скачать <a href="https://lyceum.s3.yandex.net/content/sr/fish_base.db">здесь</a></div>
+</div></article></div></section></div></div></div>
+</body>
+</html>

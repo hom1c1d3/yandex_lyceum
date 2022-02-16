@@ -1,0 +1,7 @@
+1 red
+2 scarlet
+3 vinous
+4 crimson
+5 salmon
+6 blue
+7 lilac

@@ -1,0 +1,150 @@
+<div class="y4ef2d--task-description-opener__sideblock"><section class="y6c2ac--task-description"><header class="y6c2ac--task-description__header"><h1 class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">Загадка</h1></header><div class="y6c2ac--task-description__content-wrapper"><article class="y6c2ac--task-description__content"><p></p>
+    <div class="problem-statement">
+        <div class="header">
+            <h1 class="title">Загадка</h1>
+            <table>
+                <tbody>
+                <tr class="time-limit">
+                    <td class="property-title">Ограничение времени</td>
+                    <td>1&nbsp;секунда</td>
+                </tr>
+                <tr class="memory-limit">
+                    <td class="property-title">Ограничение памяти</td>
+                    <td>64Mb</td>
+                </tr>
+                <tr class="input-file">
+                    <td class="property-title">Ввод</td>
+                    <td colspan="1">стандартный ввод или input.txt</td>
+                </tr>
+                <tr class="output-file">
+                    <td class="property-title">Вывод</td>
+                    <td colspan="1">riddle.json</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2></h2>
+        <div class="legend">
+            <p>– Почему утконос похож на шесть животных и при этом ни на кого не похож? <br>– У него перепончатые лапы и клюв, как у утки. <br>– У него мех, как у крота. <br>– А хвост, как у бобра. <br>– Это три, а остальные – корова, птица и змея. <br>Детенышей я кормлю молоком, но как птица откладываю яйца. А на ногах у меня шпоры, содержащие яд, похожий на змеиный. </p>
+            <p>Напишите программу, определяющую, кто на кого похож.</p>
+        </div>
+        <h2>Формат ввода</h2>
+        <div class="input-specification">
+            <p>Вводятся строки, в которых через двоеточие записано: <br>класс животных (млекопитающее (<span style="font-style: italic;">mammal</span>), рептилия (<span style="font-style: italic;">reptile</span>) или насекомое (<span style="font-style: italic;">insect</span>)); <br>название; <br>часть или признак.</p>
+        </div>
+        <h2>Формат вывода</h2>
+        <div class="output-specification">
+            <p>В файл <span style="font-weight: bold;">riddle.json</span> запишите словарь: ключи – классы животных, значения – словари, в которых по ключам – частям или признакам записаны списки животных, которым они свойственны. Списки отсортированы по алфавиту.</p>
+        </div>
+        <h3>Пример 1</h3>
+        <table class="sample-tests">
+            <thead>
+            <tr>
+                <th>Ввод</th>
+                <th>Вывод</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+<pre>mammal:platypus:lays eggs
+insect:butterfly:lays eggs
+mammal:beaver:tail
+reptile:snake:tail
+mammal:cow:feed milk
+mammal:platypus:feed milk
+insect:fly:lays eggs
+mammal:cow:tail
+reptile:snake:lays eggs
+reptile:alligator:lays eggs
+</pre>
+                </td>
+                <td>
+<pre>{
+    "mammal": {
+        "lays eggs": [
+            "platypus"
+        ],
+        "tail": [
+            "beaver",
+            "cow"
+        ],
+        "feed milk": [
+            "cow",
+            "platypus"
+        ]
+    },
+    "reptile": {
+        "tail": [
+            "snake"
+        ],
+        "lays eggs": [
+            "alligator",
+            "snake"
+        ]
+    },
+    "insect": {
+        "lays eggs": [
+            "butterfly",
+            "fly"
+        ]
+    }
+}
+</pre>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h3>Пример 2</h3>
+        <table class="sample-tests">
+            <thead>
+            <tr>
+                <th>Ввод</th>
+                <th>Вывод</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+<pre>mammal:platypus:spurs
+mammal:cock:spurs
+reptile:snake:poison
+mammal:duck:beak
+mammal:platypus:beak
+mammal:platypus:poison
+reptile:turtle:shell
+reptile:armadillo:shell
+</pre>
+                </td>
+                <td>
+<pre>{
+    "mammal": {
+        "spurs": [
+            "cock",
+            "platypus"
+        ],
+        "beak": [
+            "duck",
+            "platypus"
+        ],
+        "poison": [
+            "platypus"
+        ]
+    },
+    "reptile": {
+        "poison": [
+            "snake"
+        ],
+        "shell": [
+            "armadillo",
+            "turtle"
+        ]
+    },
+    "insect": {}
+}
+</pre>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div></article></div></section></div>

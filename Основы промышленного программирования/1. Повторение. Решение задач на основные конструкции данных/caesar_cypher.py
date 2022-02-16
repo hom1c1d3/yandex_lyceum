@@ -1,0 +1,6 @@
+alphabet = input()
+offset = int(input())
+offset %= len(alphabet)
+print(alphabet[offset:] + alphabet[:offset])
+print(alphabet)
+print(alphabet[-offset:] + alphabet[:-offset])

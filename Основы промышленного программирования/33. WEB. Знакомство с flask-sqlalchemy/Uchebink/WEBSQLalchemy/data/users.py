@@ -13,3 +13,6 @@ class User(SqlAlchemyBase):
     hashed_password = sa.Column(sa.String, nullable=True)
     create_date = sa.Column(sa.DateTime, default=datetime.now)
     news = orm.relation('News', back_populates="user")
+
+    def __repr__(self):
+        return f"<User {self.id} {self.name} {self.email}>"

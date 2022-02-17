@@ -15,6 +15,16 @@ def main():
 
     user = db_sess.query(User).first()
     print(user)
+
+    print(db_sess.query(User).filter(User.id > 1).all())  # filter
+
+    # second_user = db_sess.query(User).filter(User.id == 2).first()
+    # db_sess.delete(second_user)
+    # db_sess.commit()
+
+    # db_sess.query(User).filter(User.id == 3).delete()
+    # db_sess.commit()
+
     db_sess.close()
 
 

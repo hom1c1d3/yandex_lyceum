@@ -1,8 +1,5 @@
 import sqlalchemy as sa
-# from .db_session import SqlAlchemyBase
-# import sqlalchemy.ext.declarative as dec
-#
-# SqlAlchemyBase = dec.declarative_base()
+from .db_session import SqlAlchemyBase
 
 
 class Jobs(SqlAlchemyBase):  # SqlAlchemyBase Доступно в задании

@@ -1,9 +1,12 @@
+from datetime import datetime
+
 from data import db_session
 from data.users import User
+from data.jobs import Jobs
 
 
-def get_users():
-    users = [
+def get_users_data():
+    users_data = [
         {
             "surname": "Scott",
             "name": "Ridley",
@@ -41,24 +44,49 @@ def get_users():
             "email": "kapoor_astro@mars.org",
         },
     ]
-    return users
+    return users_data
+
+
+def create_users():
+    db_sess = db_session.create_session()
+    users = get_users_data()
+    for user_data in users:
+        user = User(**user_data)
+        db_sess.add(user)
+    db_sess.commit()
+
+
+def get_jobs_data():
+    jobs_data = [
+        {
+            "team_leader": 1,
+            "job": "deployment of residential modules 1 and 2",
+            "work_size": 15,
+            "collaborators": "2, 3",
+            "start_date": datetime.now(),
+            "is_finished": False,
+        },
+    ]
+    return jobs_data
+
+
+def create_jobs():
+    db_sess = db_session.create_session()
+    jobs = get_jobs_data()
+    for job_data in jobs:
+        job = Jobs(**job_data)
+        db_sess.add(job)
+    db_sess.commit()
+
+
+def add_data_to_db():
+    create_users()
+    create_jobs()
 
 
 def main():
     db_session.global_init("db/blogs.db")
-    db_sess = db_session.create_session()
-    users = get_users()
-    for user_data in users:
-        user = User()
-        user.surname = user_data["surname"]
-        user.name = user_data["name"]
-        user.age = user_data["age"]
-        user.position = user_data["position"]
-        user.speciality = user_data["speciality"]
-        user.address = user_data["address"]
-        user.email = user_data["email"]
-        db_sess.add(user)
-    db_sess.commit()
+    add_data_to_db()
 
 
 if __name__ == '__main__':

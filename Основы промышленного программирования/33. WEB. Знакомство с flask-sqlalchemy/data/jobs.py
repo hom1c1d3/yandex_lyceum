@@ -11,6 +11,7 @@ class Jobs(SqlAlchemyBase):  # SqlAlchemyBase Доступно в задании
     collaborators = sa.Column(sa.String)  # список id
     start_date = sa.Column(sa.Date)
     send_date = sa.Column(sa.Date)
+    is_finished = sa.Column(sa.Boolean, default=False)
 
     def __repr__(self):
         return f"<Jobs {self.id} {self.name} {self.email}>"

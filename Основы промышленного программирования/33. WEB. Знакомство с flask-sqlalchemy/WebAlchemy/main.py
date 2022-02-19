@@ -1,8 +1,13 @@
 from datetime import datetime
 
+from flask import Flask, render_template
+
 from data import db_session
-from data.users import User
 from data.jobs import Jobs
+from data.users import User
+
+app = Flask(__name__)
+app.config["SECRET_KEY"] = "SECRETTOKEN"
 
 
 def get_users_data():
@@ -59,12 +64,36 @@ def create_users():
 def get_jobs_data():
     jobs_data = [
         {
-            "team_leader": 1,
-            "job": "deployment of residential modules 1 and 2",
+            "team_leader_id": 1,
+            "job": "Deployment of residential modules 1 and 2",
             "work_size": 15,
             "collaborators": "2, 3",
             "start_date": datetime.now(),
             "is_finished": False,
+        },
+        {
+            "team_leader_id": 2,
+            "job": "Exploration of mineral sources",
+            "work_size": 15,
+            "collaborators": "4, 3",
+            "start_date": datetime.now(),
+            "is_finished": False,
+        },
+        {
+            "team_leader_id": 3,
+            "job": "Development of management system",
+            "work_size": 25,
+            "collaborators": "5",
+            "start_date": datetime.now(),
+            "is_finished": False,
+        },
+        {
+            "team_leader_id": 4,
+            "job": "Fix ventilation system",
+            "work_size": 20,
+            "collaborators": "2, 5",
+            "start_date": datetime.now(),
+            "is_finished": True,
         },
     ]
     return jobs_data
@@ -84,9 +113,16 @@ def add_data_to_db():
     create_jobs()
 
 
+@app.route("/")
+def work_log():
+    db_sess = db_session.create_session()
+    jobs = db_sess.query(Jobs).all()
+    return render_template("work_log.html", jobs=jobs)
+
+
 def main():
     db_session.global_init("db/blogs.db")
-    add_data_to_db()
+    app.run("", port=8080)
 
 
 if __name__ == '__main__':

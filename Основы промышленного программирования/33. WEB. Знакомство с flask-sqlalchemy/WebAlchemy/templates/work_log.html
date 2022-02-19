@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 align="center">Works log</h2>
+{% for job in jobs %}
+    <h3>Action #{{ job.id }}</h3>
+    <table class="table works" style="table-layout: fixed;">
+        <thead class="table-secondary">
+            <tr>
+                {% for header in ["Title of activity", "Team leader", "Duration",
+                "List of collaborators", "Is finished"] %}
+                    <th scope="col" class="col-md-auto">{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="align-middle">
+                <td class="table-primary">{{ job.job }}</td>
+                <td class="table-primary">{{ job.team_leader.name }} {{ job.team_leader.surname }}</td>
+                <td class="table-primary">{{ job.work_size }} Hours</td>
+                <td class="table-primary">{{ job.collaborators }}</td>
+                {% if job.is_finished %}
+                    <td class="table-success">Finished</td>
+                {% else %}
+                    <td class="table-danger">Is not finished</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+{% endfor %}
+
+{% endblock %}

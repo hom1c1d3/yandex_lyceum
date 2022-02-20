@@ -16,6 +16,10 @@ h1.access {
     padding-left: 150px
 }
 
+form > .form-control {
+    margin-bottom: 1.4rem;
+}
+
 form.login_form {
     margin-left: auto;
     margin-right: auto;

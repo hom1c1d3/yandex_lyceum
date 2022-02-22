@@ -25,3 +25,6 @@
 [submodule "RiverDescent"]
 	path = Основы промышленного программирования/RiverDescent
 	url = https://github.com/TheMerret/RiverDescent
+[submodule "TeacherAndParent"]
+	path = Основы промышленного программирования/TeacherAndParent
+	url = https://github.com/BearForesterSmallBeef/TeacherAndParent

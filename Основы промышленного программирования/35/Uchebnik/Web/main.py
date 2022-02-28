@@ -1,11 +1,12 @@
 from flask import Flask, render_template, redirect
-
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from forms.user import RegisterForm
 from data.news import News
 from data.users import User
 from data import db_session
 
 app = Flask(__name__)
+login_manager = LoginManager(app)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
@@ -43,9 +44,16 @@ def reqister():
         return redirect('/login')
     return render_template('register.html', title='Регистрация', form=form)
 
+
 # 2-1 Импортируем нужные классы
 # 2-2 Инициализируем LoginManager:
 # 2-3 Функция load_user для получения пользователя:
+@login_manager.user_loader
+def load_user(user_id):
+    db_sess = db_session.create_session()
+    return db_sess.get(User, user_id)
+
+
 # 2-4 Установим множественное наследование в: \data\users.py
 # 2-5 class LoginForm: \data\users.py
 # 2-6 Шаблон: templates/login.html
@@ -132,7 +140,6 @@ def news_delete(id):
         abort(404)
     return redirect('/')
 """
-
 
 if __name__ == '__main__':
     main()

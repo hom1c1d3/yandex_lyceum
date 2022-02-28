@@ -10,18 +10,16 @@
     <header>
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">Наше приложение</a>
-<!-- {# Внешний тэг это коммент HTML, внутренний комментарий кода в шаблоне Jinja2
-        <div class="navbar-brand">
-            Логин
-        {% if current_user.is_authenticated %}
-                {{ current_user.name }}
-                <a href="/logout" class="btn btn-danger">Выход</a>
-        {% else %}
-                <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
-                <a class="btn btn-success" href="/login">Войти</a>
-        {% endif %}
-        </div>
-#} -->
+          <div class="navbar-brand">
+              Логин
+              {% if current_user.is_authenticated %}
+              {{ current_user.name }}
+              <a href="/logout" class="btn btn-danger">Выход</a>
+              {% else %}
+              <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
+              <a class="btn btn-success" href="/login">Войти</a>
+              {% endif %}
+          </div>
       </nav>
     </header>
     <!-- Begin page content -->

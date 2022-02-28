@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from forms.user import RegisterForm, LoginForm
+from forms.news import NewsForm
 from data.news import News
 from data.users import User
 from data import db_session
@@ -18,7 +19,10 @@ def main():
 @app.route("/")
 def index():
     db_sess = db_session.create_session()
-    news = db_sess.query(News).filter(News.is_private != True)
+    if current_user.is_authenticated:
+        news = db_sess.query(News).filter((News.is_private != True) | (News.user == current_user))
+    else:
+        news = db_sess.query(News).filter(News.is_private != True)
     return render_template("index.html", news=news)
 
 
@@ -80,7 +84,6 @@ def logout():
 
 # Пробуем запустить.
 
-"""
 # 3-1 Добавление новости (см. материал прошлого урока: добавление записей):
 @app.route('/news',  methods=['GET', 'POST'])
 @login_required
@@ -99,7 +102,7 @@ def add_news():
         return redirect('/')
     return render_template('news.html', title='Добавление новости',
                            form=form)
-"""
+
 # Пробуем запустить
 """
 # 3-2 Редактирование новости:

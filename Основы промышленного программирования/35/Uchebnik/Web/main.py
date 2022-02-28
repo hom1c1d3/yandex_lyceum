@@ -71,6 +71,13 @@ def login():
     return render_template("login.html", title="Авторизация", form=form)
 
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
+
+
 # Пробуем запустить.
 
 """

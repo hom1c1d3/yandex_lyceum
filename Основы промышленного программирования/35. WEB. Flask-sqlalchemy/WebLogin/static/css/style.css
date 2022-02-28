@@ -1,0 +1,30 @@
+h4 {
+    color: #cccccc;
+    padding: 20px;
+}
+
+dt.col-sm-3 {
+    font-size: 18pt;
+}
+
+dd.col-sm-9 {
+    font-size: 18pt;
+}
+
+h1.access {
+    background:url("/static/img/emblem.png") no-repeat;
+    padding-left: 150px
+}
+
+form > .form-control {
+    margin-bottom: 1.4rem;
+}
+
+form.login_form {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}

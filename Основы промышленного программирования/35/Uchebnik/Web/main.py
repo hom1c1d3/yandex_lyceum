@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request, abort
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from forms.user import RegisterForm, LoginForm
 from forms.news import NewsForm
@@ -104,7 +104,7 @@ def add_news():
                            form=form)
 
 # Пробуем запустить
-"""
+
 # 3-2 Редактирование новости:
 @app.route('/news/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -143,11 +143,11 @@ def edit_news(id):
                            title='Редактирование новости',
                            form=form
                            )
-"""
+
 # 3-3 Добавляем в шаблон index.html кнопки: "Изменить" и "Удалить"
 
 # Пробуем запустить
-"""
+
 # 3-4 Обработчик удаления записей:
 @app.route('/news_delete/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -162,7 +162,7 @@ def news_delete(id):
     else:
         abort(404)
     return redirect('/')
-"""
+
 
 if __name__ == '__main__':
     main()

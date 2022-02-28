@@ -10,6 +10,7 @@ def test_position_out_of_board():
 
 def test_position_wrong_format():
     with pytest.raises(ValueError):
+        is_under_queen_attack("H8", "h8")
         is_under_queen_attack("h 8", "h8")
         is_under_queen_attack("88", "h8")
         is_under_queen_attack("abc", "h8")
@@ -29,6 +30,7 @@ def test_queen_position_out_of_board():
 
 def test_queen_position_wrong_format():
     with pytest.raises(ValueError):
+        is_under_queen_attack("h8", "H8")
         is_under_queen_attack("h8", "h 8")
         is_under_queen_attack("h8", "88")
         is_under_queen_attack("h8", "abc")

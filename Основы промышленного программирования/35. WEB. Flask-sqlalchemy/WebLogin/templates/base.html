@@ -23,6 +23,19 @@
     </nav>
     <h4>И на Марсе будут яблони цвести!</h4>
 </header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          <!-- <strong>Title</strong> --> {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <main role="main" class="container">
     {% block content %}{% endblock %}
 </main>

@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from flask import Flask, render_template, redirect
+from flask_login import LoginManager
 
 from data import db_session
 from data.jobs import Jobs
@@ -8,6 +9,7 @@ from data.users import User
 from forms.users import RegisterForm, LoginForm
 
 app = Flask(__name__)
+login_manager = LoginManager(app)
 app.config["SECRET_KEY"] = "SECRETTOKEN"
 
 
@@ -112,6 +114,12 @@ def create_jobs():
 def add_data_to_db():
     create_users()
     create_jobs()
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    db_sess = db_session.create_session()
+    return db_sess.get(User, user_id)
 
 
 @app.route("/register", methods=['GET', 'POST'])

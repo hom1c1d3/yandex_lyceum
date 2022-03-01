@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, flash
-from flask_login import LoginManager, login_user, login_required
+from flask_login import LoginManager, login_user, login_required, logout_user
 
 from data import db_session
 from data.jobs import Jobs
@@ -51,6 +51,13 @@ def login():
         flash("Неправильный логин или пароль", "danger")
         return render_template("login.html", form=form)
     return render_template("login.html", title="Авторизация", form=form)
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
 
 
 @app.route("/addjob", methods=["GET", "POST"])

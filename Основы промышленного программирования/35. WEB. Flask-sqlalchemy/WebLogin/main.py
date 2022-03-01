@@ -1,10 +1,11 @@
 from flask import Flask, render_template, redirect, flash
-from flask_login import LoginManager, login_user
+from flask_login import LoginManager, login_user, login_required
 
 from data import db_session
 from data.jobs import Jobs
 from data.users import User
 from forms.users import RegisterForm, LoginForm
+from forms.jobs import AddJobForm
 
 app = Flask(__name__)
 login_manager = LoginManager(app)
@@ -50,6 +51,25 @@ def login():
         flash("Неправильный логин или пароль", "danger")
         return render_template("login.html", form=form)
     return render_template("login.html", title="Авторизация", form=form)
+
+
+@app.route("/addjob", methods=["GET", "POST"])
+@login_required
+def add_job():
+    form = AddJobForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        job = Jobs(
+            job=form.job.data,
+            team_leader=form.team_leader.data,
+            work_size=form.work_size.data,
+            collaborators=form.collaborators.data,
+            is_finished=form.is_finished.data
+        )
+        db_sess.add(job)
+        db_sess.commit()
+        return redirect("/")
+    return render_template("add_job.html", form=form, title="Adding a job")
 
 
 @app.route("/")

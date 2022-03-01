@@ -5,7 +5,7 @@ from flask import Flask, render_template, redirect
 from data import db_session
 from data.jobs import Jobs
 from data.users import User
-from forms.users import RegisterForm
+from forms.users import RegisterForm, LoginForm
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "SECRETTOKEN"
@@ -135,9 +135,10 @@ def register():
     return render_template("register.html", title="Регистрация", form=form)
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html", title="Авторизация")
+    form = LoginForm()
+    return render_template("login.html", title="Авторизация", form=form)
 
 
 @app.route("/")

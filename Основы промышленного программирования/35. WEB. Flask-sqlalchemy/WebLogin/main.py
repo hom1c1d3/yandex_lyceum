@@ -1,5 +1,5 @@
-from flask import Flask, render_template, redirect, flash
-from flask_login import LoginManager, login_user, login_required, logout_user
+from flask import Flask, render_template, redirect, flash, request, abort
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 from data import db_session
 from data.jobs import Jobs
@@ -60,7 +60,7 @@ def logout():
     return redirect("/")
 
 
-@app.route("/addjob", methods=["GET", "POST"])
+@app.route("/add-job", methods=["GET", "POST"])
 @login_required
 def add_job():
     form = AddJobForm()
@@ -77,6 +77,39 @@ def add_job():
         db_sess.commit()
         return redirect("/")
     return render_template("add_job.html", form=form, title="Adding a job")
+
+
+@app.route("/jobs/<int:job_id>", methods=["GET", "POST"])
+@login_required
+def edit_job(job_id):
+    form = AddJobForm()
+    if request.method == "GET":
+        db_sess = db_session.create_session()
+        job = db_sess.query(Jobs).filter(Jobs.id == job_id).\
+            filter((Jobs.team_leader == current_user) | (current_user.id == 1)).first()
+        if job:
+            form.team_leader.data = job.team_leader_id
+            form.job.data = job.job
+            form.work_size.data = job.work_size
+            form.collaborators.data = job.collaborators
+            form.is_finished.data = job.is_finished
+        else:
+            abort(404)
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        job = db_sess.query(Jobs).filter(Jobs.id == job_id).\
+            filter((Jobs.team_leader == current_user) | (current_user.id == 1)).first()
+        if job:
+            job.team_leader_id = form.team_leader
+            job.job = form.job
+            job.work_size = form.work_size
+            job.collaborators = form.collaborators
+            job.is_finished = form.is_finished
+            db_sess.commit()
+            return redirect('/')
+        else:
+            abort(404)
+    return render_template("add_job.html", title="Изменение работы", form=form)
 
 
 @app.route("/")

@@ -79,7 +79,7 @@ def add_job():
     return render_template("add_job.html", form=form, title="Adding a job")
 
 
-@app.route("/jobs/<int:job_id>", methods=["GET", "POST"])
+@app.route("/edit-job/<int:job_id>", methods=["GET", "POST"])
 @login_required
 def edit_job(job_id):
     form = AddJobForm()
@@ -112,11 +112,30 @@ def edit_job(job_id):
     return render_template("add_job.html", title="Изменение работы", form=form)
 
 
-@app.route("/")
+@app.route("/delete-job/<int:job_id>", methods=["GET", "POST"])
+@login_required
+def delete_job(job_id):
+    db_sess = db_session.create_session()
+    job = db_sess.query(Jobs).filter(Jobs.id == job_id).\
+        filter((Jobs.team_leader == current_user) | (current_user.id == 1)).first()
+    if job:
+        db_sess.delete(job)
+        db_sess.commit()
+    else:
+        abort(404)
+    return redirect("/")
+
+
+@app.route("/work-log")
 def work_log():
     db_sess = db_session.create_session()
     jobs = db_sess.query(Jobs).all()
     return render_template("work_log.html", jobs=jobs)
+
+
+@app.route("/")
+def index():
+    return redirect("/work-log")
 
 
 def main():

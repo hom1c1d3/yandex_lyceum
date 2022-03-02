@@ -3,9 +3,13 @@
 {% block content %}
 
 <h2 align="center">Works log</h2>
+{% if current_user.is_authenticated %}
+    <a href="news" class="btn btn-primary mt-3 mb-4">Добавить новость</a>
+{% endif %}
 {% for job in jobs %}
+    <div class="mb-3 job">
     <h3>Action #{{ job.id }}</h3>
-    <table class="table works" style="table-layout: fixed;">
+    <table class="table works mb-1" style="table-layout: fixed;">
         <thead class="table-secondary">
             <tr>
                 {% for header in ["Title of activity", "Team leader", "Duration",
@@ -28,6 +32,17 @@
             </tr>
         </tbody>
     </table>
+    {% if current_user.is_authenticated and (current_user == job.team_leader or current_user.id == 1) %}
+        <div>
+            <a href="/edit-job/{{ job.id }}" class="btn btn-warning">
+                Изменить
+            </a>
+            <a href="/delete-job/{{ job.id }}" class="btn btn-danger">
+                Удалить
+            </a>
+        </div>
+    {% endif %}
+    </div>
 {% endfor %}
 
 {% endblock %}

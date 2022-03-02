@@ -100,11 +100,11 @@ def edit_job(job_id):
         job = db_sess.query(Jobs).filter(Jobs.id == job_id).\
             filter((Jobs.team_leader == current_user) | (current_user.id == 1)).first()
         if job:
-            job.team_leader_id = form.team_leader
-            job.job = form.job
-            job.work_size = form.work_size
-            job.collaborators = form.collaborators
-            job.is_finished = form.is_finished
+            job.team_leader_id = form.team_leader.data
+            job.job = form.job.data
+            job.work_size = form.work_size.data
+            job.collaborators = form.collaborators.data
+            job.is_finished = form.is_finished.data
             db_sess.commit()
             return redirect('/')
         else:

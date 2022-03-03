@@ -13,7 +13,7 @@ app = Flask(__name__)
 # 2. Затем сразу после создания приложения flask инициализируем LoginManager:
 login_manager = LoginManager()
 login_manager.init_app(app)
-app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config['SECRET_KEY'] = '+'
 
 
 # 3. Для верной работы flask-login у нас должна быть
@@ -161,7 +161,7 @@ def login():
 
 @app.errorhandler(404)
 def not_found(error):
-    return make_response(jsonify({"error": "Not found"}), error)
+    return make_response(jsonify({"error": "Not found"}), 404)
 
 
 # 8. Давайте добавим следующий код в элемент nav базового шаблона:

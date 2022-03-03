@@ -7,7 +7,7 @@ from forms.news import NewsForm
 from forms.user import RegisterForm, LoginForm
 from data.news import News
 from data.users import User
-from data import db_session
+from data import db_session, news_api
 
 app = Flask(__name__)
 # 2. Затем сразу после создания приложения flask инициализируем LoginManager:
@@ -23,6 +23,7 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 def load_user(user_id):
     db_sess = db_session.create_session()
     return db_sess.query(User).get(user_id)
+
 
 # 4. Кроме того, наша модель для пользователей
 # должна содержать ряд методов
@@ -40,6 +41,7 @@ def logout():
 
 def main():
     db_session.global_init("db/blogs.db")
+    app.register_blueprint(news_api.blueprint)
     app.run(port=8080, host='127.0.0.1')
 
 
@@ -156,6 +158,7 @@ def login():
         return render_template('login.html', message="Неправильный логин или пароль", form=form)
     # Если авторизация не пройдена, то возвращаемся на начало авторизации:
     return render_template('login.html', title='Авторизация', form=form)
+
 
 # 8. Давайте добавим следующий код в элемент nav базового шаблона:
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, abort
+from flask import Flask, render_template, redirect, request, abort, make_response, jsonify
 
 # 1. Выполним первоначальную настройку модуля. Сначала импортируем нужный класс:
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
@@ -158,6 +158,10 @@ def login():
         return render_template('login.html', message="Неправильный логин или пароль", form=form)
     # Если авторизация не пройдена, то возвращаемся на начало авторизации:
     return render_template('login.html', title='Авторизация', form=form)
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({"error": "Not found"}), error)
 
 
 # 8. Давайте добавим следующий код в элемент nav базового шаблона:

@@ -1,0 +1,12 @@
+# Without submodules
+schedule==1.1.0
+requests==2.27.1
+pyqt5==5.15.4
+flask==2.0.2
+pyinstaller==4.7
+flask-wtf==1.0.0
+pygame==2.1.0
+sqlalchemy==1.4.31
+pillow==8.3.2
+flask-login==0.5.0
+sqlalchemy-serializer==1.4.1

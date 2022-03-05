@@ -35,7 +35,7 @@ def create_job():
     allowed_fields = ["team_leader_id", "job", "work_size", "collaborators", "start_date",
                       "send_date", "is_finished"]
     if not all(key in request.json for key in allowed_fields):
-        raise BadRequest()
+        raise BadRequest("Missing fields")
     db_sess = db_session.create_session()
     start_date = request.json["start_date"]
     if start_date:

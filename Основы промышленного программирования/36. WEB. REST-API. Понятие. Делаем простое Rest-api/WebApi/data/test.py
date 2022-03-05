@@ -25,6 +25,46 @@ def test_wrong_type_get_job():
     assert resp.status_code == 400 and "Bad Request" in resp.json()["error"]
 
 
+def test_job_post_empty():
+    # пустой запрос
+    data = {}
+    resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
+    assert resp.status_code == 400 and "Empty request" in resp.json()["error"]
+
+
+def test_job_post_with_missing_fields():
+    import datetime
+    # Поле send_date отсутсвует
+    data = {
+        "id": 1,
+        "team_leader_id": 4,
+        "job": "Working hard",
+        "work_size": 100,
+        "collaborators": "1, 2, 3",
+        "start_date": datetime.datetime.now().isoformat(),
+        "is_finished": False
+    }
+    resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
+    assert resp.status_code == 400 and "Missing fields" in resp.json()["error"]
+
+
+def test_job_post_with_existing_id():
+    import datetime
+    # существующая работа
+    data = {
+        "id": 1,
+        "team_leader_id": 4,
+        "job": "Working hard",
+        "work_size": 100,
+        "collaborators": "1, 2, 3",
+        "start_date": datetime.datetime.now().isoformat(),
+        "send_date": None,
+        "is_finished": False
+    }
+    resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
+    assert resp.status_code == 400 and "Id already exists" in resp.json()["error"]
+
+
 def test_job_post():
     import datetime
     data = {
@@ -35,24 +75,10 @@ def test_job_post():
         "collaborators": "1, 2, 3",
         "start_date": datetime.datetime.now().isoformat(),
         "send_date": None,
-        "is_finished": False}
+        "is_finished": False
+    }
     resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
     resp.raise_for_status()
     resp = requests.get(f"{BASE_URL}/api/jobs")
     jobs = resp.json()["jobs"]
     assert jobs[-1]["job"] == "Working hard"
-
-
-def test_job_post_with_existing_id():
-    import datetime
-    data = {
-        "id": 1,
-        "team_leader_id": 4,
-        "job": "Working hard",
-        "work_size": 100,
-        "collaborators": "1, 2, 3",
-        "start_date": datetime.datetime.now().isoformat(),
-        "send_date": None,
-        "is_finished": False}
-    resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
-    assert resp.status_code == 400 and "Id already exists" in resp.json()["error"]

@@ -1,6 +1,5 @@
 import requests
 
-
 BASE_URL = "http://127.0.0.1:8080"
 
 
@@ -18,9 +17,25 @@ def test_get_job():
 
 def test_wrong_get_job():
     resp = requests.get(f"{BASE_URL}/api/jobs/0")
-    assert resp.status_code == 404 and resp.json()["error"] == "Not found"
+    assert resp.status_code == 404 and "Not found" in resp.json()["error"]
 
 
 def test_wrong_type_get_job():
     resp = requests.get(f"{BASE_URL}/api/jobs/string")
-    assert resp.status_code == 400 and resp.json()["error"] == "Bad request"
+    assert resp.status_code == 400 and "Bad request" in resp.json()["error"]
+
+
+def test_job_post():
+    import datetime
+    data = {"team_leader_id": 4,
+            "job": "Working hard",
+            "work_size": 100,
+            "collaborators": "1, 2, 3",
+            "start_date": datetime.datetime.now().isoformat(),
+            "send_date": None,
+            "is_finished": False}
+    resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
+    # resp.raise_for_status()
+    # resp = requests.get(f"{BASE_URL}/api/jobs")
+    # jobs = resp.json()["jobs"]
+    # assert jobs[-1]["job"] == "Working hard"

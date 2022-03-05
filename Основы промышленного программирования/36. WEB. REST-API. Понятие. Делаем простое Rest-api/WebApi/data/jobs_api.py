@@ -53,6 +53,8 @@ def create_job():
         send_date=send_date,
         is_finished=request.json["is_finished"],
     )
+    if db_sess.query(Jobs).filter(Jobs.id == job.id).first():
+        raise BadRequest("Id already exists")
     db_sess.add(job)
     db_sess.commit()
     return jsonify({'success': 'OK'})

@@ -17,12 +17,12 @@ def test_get_job():
 
 def test_wrong_get_job():
     resp = requests.get(f"{BASE_URL}/api/jobs/0")
-    assert resp.status_code == 404 and "Not found" in resp.json()["error"]
+    assert resp.status_code == 404 and "Not Found" in resp.json()["error"]
 
 
 def test_wrong_type_get_job():
     resp = requests.get(f"{BASE_URL}/api/jobs/string")
-    assert resp.status_code == 400 and "Bad request" in resp.json()["error"]
+    assert resp.status_code == 400 and "Bad Request" in resp.json()["error"]
 
 
 def test_job_post():
@@ -41,3 +41,18 @@ def test_job_post():
     resp = requests.get(f"{BASE_URL}/api/jobs")
     jobs = resp.json()["jobs"]
     assert jobs[-1]["job"] == "Working hard"
+
+
+def test_job_post_with_existing_id():
+    import datetime
+    data = {
+        "id": 1,
+        "team_leader_id": 4,
+        "job": "Working hard",
+        "work_size": 100,
+        "collaborators": "1, 2, 3",
+        "start_date": datetime.datetime.now().isoformat(),
+        "send_date": None,
+        "is_finished": False}
+    resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
+    assert resp.status_code == 400 and "Id already exists" in resp.json()["error"]

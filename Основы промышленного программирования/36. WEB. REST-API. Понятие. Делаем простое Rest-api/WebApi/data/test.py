@@ -27,15 +27,17 @@ def test_wrong_type_get_job():
 
 def test_job_post():
     import datetime
-    data = {"team_leader_id": 4,
-            "job": "Working hard",
-            "work_size": 100,
-            "collaborators": "1, 2, 3",
-            "start_date": datetime.datetime.now().isoformat(),
-            "send_date": None,
-            "is_finished": False}
+    data = {
+        "id": 5,
+        "team_leader_id": 4,
+        "job": "Working hard",
+        "work_size": 100,
+        "collaborators": "1, 2, 3",
+        "start_date": datetime.datetime.now().isoformat(),
+        "send_date": None,
+        "is_finished": False}
     resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
-    # resp.raise_for_status()
-    # resp = requests.get(f"{BASE_URL}/api/jobs")
-    # jobs = resp.json()["jobs"]
-    # assert jobs[-1]["job"] == "Working hard"
+    resp.raise_for_status()
+    resp = requests.get(f"{BASE_URL}/api/jobs")
+    jobs = resp.json()["jobs"]
+    assert jobs[-1]["job"] == "Working hard"

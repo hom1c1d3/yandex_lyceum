@@ -44,6 +44,7 @@ def create_job():
     if send_date:
         send_date = datetime.fromisoformat(send_date)
     job = Jobs(
+        id=request.json["id"],
         team_leader_id=request.json["team_leader_id"],
         job=request.json["job"],
         work_size=request.json["work_size"],

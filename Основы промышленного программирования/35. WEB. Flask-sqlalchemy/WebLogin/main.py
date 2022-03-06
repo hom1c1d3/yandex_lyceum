@@ -87,7 +87,7 @@ def edit_job(job_id):
     form = AddJobForm()
     if request.method == "GET":
         db_sess = db_session.create_session()
-        job = db_sess.query(Jobs).filter(Jobs.id == job_id).\
+        job = db_sess.query(Jobs).filter(Jobs.id == job_id). \
             filter((Jobs.team_leader == current_user) | (current_user.id == 1)).first()
         if job:
             form.team_leader.data = job.team_leader_id
@@ -99,7 +99,7 @@ def edit_job(job_id):
             abort(404)
     if form.validate_on_submit():
         db_sess = db_session.create_session()
-        job = db_sess.query(Jobs).filter(Jobs.id == job_id).\
+        job = db_sess.query(Jobs).filter(Jobs.id == job_id). \
             filter((Jobs.team_leader == current_user) | (current_user.id == 1)).first()
         if job:
             job.team_leader_id = form.team_leader.data
@@ -118,7 +118,7 @@ def edit_job(job_id):
 @login_required
 def delete_job(job_id):
     db_sess = db_session.create_session()
-    job = db_sess.query(Jobs).filter(Jobs.id == job_id).\
+    job = db_sess.query(Jobs).filter(Jobs.id == job_id). \
         filter((Jobs.team_leader == current_user) | (current_user.id == 1)).first()
     if job:
         db_sess.delete(job)
@@ -145,8 +145,39 @@ def add_department():
         )
         db_sess.add(department)
         db_sess.commit()
-        return redirect("/")
+        return redirect("/departments")
     return render_template("add_department.html", title="Добавить работу", form=form)
+
+
+@app.route("/edit-department/<int:department_id>", methods=["GET", "POST"])
+@login_required
+def edit_department(department_id):
+    form = AddDepartmentForm()
+    if request.method == "GET":
+        db_sess = db_session.create_session()
+        department = db_sess.query(Department).filter(Department.id == department_id) \
+            .filter((Department.chief == current_user) | (current_user.id == 1)).first()
+        if department:
+            form.title.data = department.title
+            form.chief_id.data = department.chief_id
+            form.members.data = department.members
+            form.email.data = department.email
+        else:
+            abort(404)
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        department = db_sess.query(Department).filter(Department.id == department_id) \
+            .filter((Department.chief == current_user) | (current_user.id == 1)).first()
+        if department:
+            department.title = form.title.data
+            department.chief_id = form.chief_id.data
+            department.members = form.members.data
+            department.email = form.email.data
+            db_sess.commit()
+            return redirect("/departments")
+        else:
+            abort(404)
+    return render_template("add_department.html", title="Изменить работу", form=form)
 
 
 @app.route("/departments")

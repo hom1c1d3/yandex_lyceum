@@ -149,6 +149,13 @@ def add_department():
     return render_template("add_department.html", title="Добавить работу", form=form)
 
 
+@app.route("/departments")
+def departments_list():
+    db_sess = db_session.create_session()
+    departments = db_sess.query(Department).all()
+    return render_template("departments_list.html", departments=departments)
+
+
 @app.route("/work-log")
 def work_log():
     db_sess = db_session.create_session()

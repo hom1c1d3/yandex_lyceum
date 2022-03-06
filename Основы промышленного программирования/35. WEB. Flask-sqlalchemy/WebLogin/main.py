@@ -2,10 +2,12 @@ from flask import Flask, render_template, redirect, flash, request, abort
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 from data import db_session
+from data.departments import Department
 from data.jobs import Jobs
 from data.users import User
-from forms.users import RegisterForm, LoginForm
+from forms.departments import AddDepartmentForm
 from forms.jobs import AddJobForm
+from forms.users import RegisterForm, LoginForm
 
 app = Flask(__name__)
 login_manager = LoginManager(app)
@@ -124,6 +126,27 @@ def delete_job(job_id):
     else:
         abort(404)
     return redirect("/")
+
+
+@app.route("/add-department", methods=["GET", "POST"])
+@login_required
+def add_department():
+    form = AddDepartmentForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        if db_sess.query(Department).filter(Department.email == form.email.data).first():
+            flash("Такой департамент уже существует", "danger")
+            return redirect("/add-department")
+        department = Department(
+            title=form.title.data,
+            chief_id=form.chief_id.data,
+            members=form.members.data,
+            email=form.email.data,
+        )
+        db_sess.add(department)
+        db_sess.commit()
+        return redirect("/")
+    return render_template("add_department.html", title="Добавить работу", form=form)
 
 
 @app.route("/work-log")

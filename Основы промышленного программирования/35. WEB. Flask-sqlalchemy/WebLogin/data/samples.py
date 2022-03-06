@@ -1,10 +1,10 @@
 from datetime import datetime
 
-from werkzeug.security import generate_password_hash
-
 from data import db_session
 from data.jobs import Jobs
 from data.users import User
+from data.departments import Department
+from werkzeug.security import generate_password_hash
 
 
 def get_users_data():
@@ -51,6 +51,17 @@ def get_users_data():
             "address": "module_4",
             "email": "kapoor_astro@mars.org",
             "hashed_password": generate_password_hash("cyberkapoor25"),
+            "modified_date": datetime.now()
+        },
+        {
+            "surname": "Bean",
+            "name": "Sean",
+            "age": 17,
+            "position": "chief engineer",
+            "speciality": "builder",
+            "address": "module_1",
+            "email": "bean@mars.org",
+            "hashed_password": generate_password_hash("seanlikesbeans1"),
             "modified_date": datetime.now()
         },
     ]
@@ -113,6 +124,52 @@ def create_jobs():
     db_sess.commit()
 
 
+def get_departments_data():
+    departments_data = [
+        {
+            "title": "Department of geological exploration",
+            "chief_id": 2,
+            "members": "3, 4, 5",
+            "email": "geo@mars.org",
+        },
+        {
+            "title": "Department of biological research",
+            "chief_id": 3,
+            "members": "7, 10, 11",
+            "email": "bio@mars.org",
+        },
+        {
+            "title": "Department of construction",
+            "chief_id": 5,
+            "members": "16, 17, 28",
+            "email": "build@mars.org",
+        },
+        {
+            "title": "Department of transportation",
+            "chief_id": 4,
+            "members": "26, 37, 19",
+            "email": "transport@mars.org",
+        },
+        {
+            "title": "Department of terraforming",
+            "chief_id": 1,
+            "members": "1, 2, 5",
+            "email": "terra@mars.org",
+        },
+    ]
+    return departments_data
+
+
+def create_departments():
+    db_sess = db_session.create_session()
+    departments = get_departments_data()
+    for department_data in departments:
+        department = Department(**department_data)
+        db_sess.add(department)
+    db_sess.commit()
+
+
 def add_data_to_db():
     create_users()
     create_jobs()
+    create_departments()

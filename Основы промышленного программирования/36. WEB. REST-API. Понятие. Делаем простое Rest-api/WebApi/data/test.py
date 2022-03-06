@@ -1,3 +1,4 @@
+import datetime
 import requests
 
 BASE_URL = "http://127.0.0.1:8080"
@@ -33,7 +34,6 @@ def test_job_post_empty():
 
 
 def test_job_post_with_missing_fields():
-    import datetime
     # Поле send_date отсутсвует
     data = {
         "id": 1,
@@ -49,7 +49,6 @@ def test_job_post_with_missing_fields():
 
 
 def test_job_post_with_existing_id():
-    import datetime
     # существующая работа
     data = {
         "id": 1,
@@ -66,7 +65,6 @@ def test_job_post_with_existing_id():
 
 
 def test_job_post():
-    import datetime
     data = {
         "id": 5,
         "team_leader_id": 4,
@@ -101,3 +99,34 @@ def test_job_delete():
     resp.raise_for_status()
     resp = requests.get(f"{BASE_URL}/api/jobs/{job_id}")  # проверяем что такой работы уже нет
     assert resp.status_code == 404 and "Not Found" in resp.json()["error"]
+
+
+def test_missing_job_edit():
+    job_id = 0
+    resp = requests.put(f"{BASE_URL}/api/jobs/{job_id}")  # несуществующая работа
+    assert resp.status_code == 404 and "Not Found" in resp.json()["error"]
+
+
+def test_wrong_type_edit_job():
+    resp = requests.put(f"{BASE_URL}/api/jobs/string")
+    assert resp.status_code == 400 and "Bad Request" in resp.json()["error"]
+
+
+def test_job_edit():
+    job_id = 2
+    data = {
+        "id": 2,
+        "team_leader_id": 4,
+        "job": "Working hard",
+        "work_size": 100,
+        "collaborators": "1, 2, 3",
+        "start_date": datetime.datetime.now().isoformat(),
+        "send_date": None,
+        "is_finished": False
+    }
+    resp = requests.put(f"{BASE_URL}/api/jobs/{job_id}", json=data)
+    resp.raise_for_status()
+    resp = requests.get(f"{BASE_URL}/api/jobs/{job_id}")
+    resp.raise_for_status()
+    job = resp.json()["jobs"][0]
+    assert job["job"] == "Working hard"

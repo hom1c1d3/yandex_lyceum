@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask import Blueprint, jsonify, request
 from werkzeug.exceptions import BadRequest, NotFound
 
@@ -29,7 +31,6 @@ def get_job(job_id):
 
 @jobs_api.route("/", methods=["POST"])
 def create_job():
-    from datetime import datetime
     if not request.json:
         raise BadRequest("Empty request")
     allowed_fields = ["team_leader_id", "job", "work_size", "collaborators", "start_date",
@@ -71,7 +72,37 @@ def delete_job(job_id):
     return jsonify({'success': 'OK'})
 
 
-@jobs_api.route("/<path:_>")
+@jobs_api.route("/<int:job_id>", methods=["PUT"])
+def edit_job(job_id):
+    db_sess = db_session.create_session()
+    job: Jobs = db_sess.get(Jobs, job_id)
+    if not job:
+        raise NotFound()
+    if not request.json:
+        raise BadRequest("Empty request")
+    allowed_fields = ["team_leader_id", "job", "work_size", "collaborators", "start_date",
+                      "send_date", "is_finished"]
+    if not all(key in request.json for key in allowed_fields):
+        raise BadRequest("Missing fields")
+    start_date = request.json["start_date"]
+    if start_date:
+        start_date = datetime.fromisoformat(start_date)
+    send_date = request.json["send_date"]
+    if send_date:
+        send_date = datetime.fromisoformat(send_date)
+    job.id = request.json["id"]
+    job.team_leader_id = request.json["team_leader_id"]
+    job.job = request.json["job"]
+    job.work_size = request.json["work_size"]
+    job.collaborators = request.json["collaborators"]
+    job.start_date = start_date
+    job.send_date = send_date
+    job.is_finished = request.json["is_finished"]
+    db_sess.commit()
+    return jsonify({'success': 'OK'})
+
+
+@jobs_api.route("/<path:_>", methods=["GET", "DELETE", "PUT"])
 def handle_invalid_path(_):
     raise BadRequest()
 

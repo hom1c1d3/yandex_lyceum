@@ -4,7 +4,10 @@
 
 <h2 align="center">List of departments</h2>
 {% if current_user.is_authenticated %}
-    <a href="/add-department" class="btn btn-primary mt-3 mb-4">Добавить департамент</a>
+<div>
+    <a href="/work-log" class="btn btn-primary mt-3 mb-4">Работы</a>
+    <a href="/add-department" class="btn btn-primary mt-3 mb-4">Добавить Департаменты</a>
+</div>
 {% endif %}
 {% for department in departments %}
     <div class="mb-3 job">

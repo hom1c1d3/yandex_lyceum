@@ -12,7 +12,7 @@ class Jobs(SqlAlchemyBase):  # SqlAlchemyBase Доступно в задании
     work_size = sa.Column(sa.Integer)  # в часах
     collaborators = sa.Column(sa.String)  # список id
     start_date = sa.Column(sa.Date)
-    send_date = sa.Column(sa.Date)
+    end_date = sa.Column(sa.Date)
     is_finished = sa.Column(sa.Boolean, default=False)
 
     def __repr__(self):

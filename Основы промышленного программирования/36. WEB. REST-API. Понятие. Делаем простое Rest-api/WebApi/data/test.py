@@ -82,3 +82,17 @@ def test_job_post():
     resp = requests.get(f"{BASE_URL}/api/jobs")
     jobs = resp.json()["jobs"]
     assert jobs[-1]["job"] == "Working hard"
+
+
+def test_missing_job_delete():
+    job_id = 0
+    resp = requests.delete(f"{BASE_URL}/api/jobs/{job_id}")  # несуществующая работа
+    assert resp.status_code == 404 and "Not Found" in resp.json()["error"]
+
+
+def test_job_delete():
+    job_id = 1
+    resp = requests.delete(f"{BASE_URL}/api/jobs/{job_id}")
+    resp.raise_for_status()
+    resp = requests.get(f"{BASE_URL}/api/jobs/{job_id}")  # проверяем что такой работы уже нет
+    assert resp.status_code == 404 and "Not Found" in resp.json()["error"]

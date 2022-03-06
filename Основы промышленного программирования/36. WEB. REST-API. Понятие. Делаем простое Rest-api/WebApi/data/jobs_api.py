@@ -60,6 +60,17 @@ def create_job():
     return jsonify({'success': 'OK'})
 
 
+@jobs_api.route("/<int:job_id>", methods=["DELETE"])
+def delete_job(job_id):
+    db_sess = db_session.create_session()
+    job: Jobs = db_sess.get(Jobs, job_id)
+    if not job:
+        raise NotFound()
+    db_sess.delete(job)
+    db_sess.commit()
+    return jsonify({'success': 'OK'})
+
+
 @jobs_api.route("/<path:_>")
 def handle_invalid_path(_):
     raise BadRequest()

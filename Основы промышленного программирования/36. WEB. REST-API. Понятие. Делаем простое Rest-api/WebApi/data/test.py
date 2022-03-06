@@ -34,7 +34,7 @@ def test_job_post_empty():
 
 
 def test_job_post_with_missing_fields():
-    # Поле send_date отсутсвует
+    # Поле end_date отсутсвует
     data = {
         "id": 1,
         "team_leader_id": 4,
@@ -57,7 +57,7 @@ def test_job_post_with_existing_id():
         "work_size": 100,
         "collaborators": "1, 2, 3",
         "start_date": datetime.datetime.now().isoformat(),
-        "send_date": None,
+        "end_date": None,
         "is_finished": False
     }
     resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
@@ -72,7 +72,7 @@ def test_job_post():
         "work_size": 100,
         "collaborators": "1, 2, 3",
         "start_date": datetime.datetime.now().isoformat(),
-        "send_date": None,
+        "end_date": None,
         "is_finished": False
     }
     resp = requests.post(f"{BASE_URL}/api/jobs", json=data)
@@ -121,7 +121,7 @@ def test_job_edit():
         "work_size": 100,
         "collaborators": "1, 2, 3",
         "start_date": datetime.datetime.now().isoformat(),
-        "send_date": None,
+        "end_date": None,
         "is_finished": False
     }
     resp = requests.put(f"{BASE_URL}/api/jobs/{job_id}", json=data)

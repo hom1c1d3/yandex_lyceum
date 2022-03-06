@@ -34,16 +34,16 @@ def create_job():
     if not request.json:
         raise BadRequest("Empty request")
     allowed_fields = ["team_leader_id", "job", "work_size", "collaborators", "start_date",
-                      "send_date", "is_finished"]
+                      "end_date", "is_finished"]
     if not all(key in request.json for key in allowed_fields):
         raise BadRequest("Missing fields")
     db_sess = db_session.create_session()
     start_date = request.json["start_date"]
     if start_date:
         start_date = datetime.fromisoformat(start_date)
-    send_date = request.json["send_date"]
-    if send_date:
-        send_date = datetime.fromisoformat(send_date)
+    end_date = request.json["end_date"]
+    if end_date:
+        end_date = datetime.fromisoformat(end_date)
     job = Jobs(
         id=request.json["id"],
         team_leader_id=request.json["team_leader_id"],
@@ -51,7 +51,7 @@ def create_job():
         work_size=request.json["work_size"],
         collaborators=request.json["collaborators"],
         start_date=start_date,
-        send_date=send_date,
+        end_date=end_date,
         is_finished=request.json["is_finished"],
     )
     if db_sess.query(Jobs).filter(Jobs.id == job.id).first():
@@ -81,22 +81,22 @@ def edit_job(job_id):
     if not request.json:
         raise BadRequest("Empty request")
     allowed_fields = ["team_leader_id", "job", "work_size", "collaborators", "start_date",
-                      "send_date", "is_finished"]
+                      "end_date", "is_finished"]
     if not all(key in request.json for key in allowed_fields):
         raise BadRequest("Missing fields")
     start_date = request.json["start_date"]
     if start_date:
         start_date = datetime.fromisoformat(start_date)
-    send_date = request.json["send_date"]
-    if send_date:
-        send_date = datetime.fromisoformat(send_date)
+    end_date = request.json["end_date"]
+    if end_date:
+        end_date = datetime.fromisoformat(end_date)
     job.id = request.json["id"]
     job.team_leader_id = request.json["team_leader_id"]
     job.job = request.json["job"]
     job.work_size = request.json["work_size"]
     job.collaborators = request.json["collaborators"]
     job.start_date = start_date
-    job.send_date = send_date
+    job.end_date = end_date
     job.is_finished = request.json["is_finished"]
     db_sess.commit()
     return jsonify({'success': 'OK'})

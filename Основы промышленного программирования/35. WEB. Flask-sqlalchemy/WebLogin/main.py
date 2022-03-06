@@ -180,6 +180,20 @@ def edit_department(department_id):
     return render_template("add_department.html", title="Изменить работу", form=form)
 
 
+@app.route("/delete-department/<int:department_id>")
+@login_required
+def delete_department(department_id):
+    db_sess = db_session.create_session()
+    department = db_sess.query(Department).filter(Department.id == department_id) \
+        .filter((Department.chief == current_user) | (current_user.id == 1)).first()
+    if department:
+        db_sess.delete(department)
+        db_sess.commit()
+    else:
+        abort(404)
+    return redirect("/departments")
+
+
 @app.route("/departments")
 def departments_list():
     db_sess = db_session.create_session()

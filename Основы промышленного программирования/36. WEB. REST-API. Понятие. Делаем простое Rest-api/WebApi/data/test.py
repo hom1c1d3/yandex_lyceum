@@ -90,6 +90,11 @@ def test_missing_job_delete():
     assert resp.status_code == 404 and "Not Found" in resp.json()["error"]
 
 
+def test_wrong_type_delete_job():
+    resp = requests.delete(f"{BASE_URL}/api/jobs/string")
+    assert resp.status_code == 400 and "Bad Request" in resp.json()["error"]
+
+
 def test_job_delete():
     job_id = 1
     resp = requests.delete(f"{BASE_URL}/api/jobs/{job_id}")

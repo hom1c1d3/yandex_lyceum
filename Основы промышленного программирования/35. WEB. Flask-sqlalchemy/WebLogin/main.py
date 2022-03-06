@@ -215,7 +215,7 @@ def index():
 
 def main():
     db_session.global_init("db/blogs.db")
-    app.run("", port=8080, debug=True)
+    app.run("", port=8080)
 
 
 if __name__ == '__main__':

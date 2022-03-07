@@ -8,7 +8,7 @@ association_table = sa.Table("jobs_to_categories", SqlAlchemyBase.metadata,
                              sa.Column("category.id", sa.Integer, sa.ForeignKey("categories.id")))
 
 
-class Category(SqlAlchemyBase):
+class Category(SqlAlchemyBase, SerializerMixin):
     __tablename__ = "categories"
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     name = sa.Column(sa.String)
@@ -16,6 +16,9 @@ class Category(SqlAlchemyBase):
 
 class Jobs(SqlAlchemyBase, SerializerMixin):  # SqlAlchemyBase Доступно в задании
     __tablename__ = 'jobs'
+
+    serialize_rules = ("-team_leader", "-categories.jobs")
+
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     team_leader_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))  # id лидера
     team_leader = orm.relationship("User")

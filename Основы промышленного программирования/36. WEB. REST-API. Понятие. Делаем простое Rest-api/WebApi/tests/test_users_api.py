@@ -105,3 +105,75 @@ def test_user_post():
     resp = requests.get(f"{BASE_URL}/api/users")
     users = resp.json()["users"]
     assert users[-1]["name"] == "Teddy"
+
+
+def test_missing_user_edit():
+    # Редактирование несуществующего пользователя
+    user_id = 0
+    data = {}
+    resp = requests.put(f"{BASE_URL}/api/users/{user_id}", json=data)
+    assert resp.status_code == 404 and "Not Found" in resp.json()["error"]
+
+
+def test_user_empty_edit():
+    user_id = 1
+    data = {}
+    resp = requests.put(f"{BASE_URL}/api/users/{user_id}", json=data)
+    assert resp.status_code == 400 and "Empty request" in resp.json()["error"]
+
+
+def test_user_edit_with_missing_fields():
+    # Поле modified_date отсутсвует
+    user_id = 1
+    data = {
+        "id": 6,
+        "surname": "Sanders",
+        "name": "Teddy",
+        "age": 27,
+        "position": "programmer",
+        "speciality": "IT specialist",
+        "address": "module_2",
+        "email": "sanders@mars.org",
+        "hashed_password": generate_password_hash("teddy_bear27"),
+    }
+    resp = requests.put(f"{BASE_URL}/api/users/{user_id}", json=data)
+    assert resp.status_code == 400 and "Missing fields" in resp.json()["error"]
+
+
+def test_user_edit_wrong_type_hash():
+    user_id = 1
+    data = {
+        "id": 6,
+        "surname": "Sanders",
+        "name": "Teddy",
+        "age": 27,
+        "position": "programmer",
+        "speciality": "IT specialist",
+        "address": "module_2",
+        "email": "sanders@mars.org",
+        "hashed_password": generate_password_hash("teddy_bear27", method="pbkdf2:sha1"),
+        "modified_date": datetime.datetime.now().isoformat(),
+    }
+    resp = requests.put(f"{BASE_URL}/api/users/{user_id}", json=data)
+    assert resp.status_code == 400 and "Wrong type hash" in resp.json()["error"]
+
+
+def test_user_edit():
+    user_id = 2
+    data = {
+        "id": 2,
+        "surname": "Sanders",
+        "name": "Teddy",
+        "age": 27,
+        "position": "programmer",
+        "speciality": "IT specialist",
+        "address": "module_2",
+        "email": "sanders_manders@mars.org",  # уникальная почта из-за предыдущих тестов
+        "hashed_password": generate_password_hash("teddy_bear27"),
+        "modified_date": datetime.datetime.now().isoformat(),
+    }
+    resp = requests.put(f"{BASE_URL}/api/users/{user_id}", json=data)
+    resp.raise_for_status()
+    resp = requests.get(f"{BASE_URL}/api/users/{user_id}")
+    users = resp.json()["users"][0]
+    assert users["name"] == "Teddy"

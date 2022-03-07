@@ -9,6 +9,7 @@ from forms.departments import AddDepartmentForm
 from forms.jobs import AddJobForm
 from forms.users import RegisterForm, LoginForm
 from data.jobs_api import jobs_api
+from data.users_api import users_api
 
 app = Flask(__name__)
 login_manager = LoginManager(app)
@@ -217,6 +218,7 @@ def index():
 def main():
     db_session.global_init("db/blogs.db")
     app.register_blueprint(jobs_api)
+    app.register_blueprint(users_api)
     app.run("", port=8080)
 
 

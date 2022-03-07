@@ -107,6 +107,11 @@ def test_user_post():
     assert users[-1]["name"] == "Teddy"
 
 
+def test_wrong_type_edit_user():
+    resp = requests.put(f"{BASE_URL}/api/users/string")
+    assert resp.status_code == 400 and "Bad Request" in resp.json()["error"]
+
+
 def test_missing_user_edit():
     # Редактирование несуществующего пользователя
     user_id = 0
@@ -177,3 +182,23 @@ def test_user_edit():
     resp = requests.get(f"{BASE_URL}/api/users/{user_id}")
     users = resp.json()["users"][0]
     assert users["name"] == "Teddy"
+
+
+def test_missing_user_delete():
+    user_id = 0
+    resp = requests.delete(f"{BASE_URL}/api/users/{user_id}")  # несуществующий пользователь
+    assert resp.status_code == 404 and "Not Found" in resp.json()["error"]
+
+
+def test_wrong_type_delete_user():
+    resp = requests.delete(f"{BASE_URL}/api/users/string")
+    assert resp.status_code == 400 and "Bad Request" in resp.json()["error"]
+
+
+def test_user_delete():
+    user_id = 1
+    resp = requests.delete(f"{BASE_URL}/api/users/{user_id}")
+    resp.raise_for_status()
+    resp = requests.get(f"{BASE_URL}/api/users/{user_id}")  # проверяем что такого пользователя
+    # уже нет
+    assert resp.status_code == 404 and "Not Found" in resp.json()["error"]

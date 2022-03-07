@@ -97,6 +97,17 @@ def edit_user(user_id):
     return jsonify({'success': 'OK'})
 
 
+@users_api.route("/<int:user_id>", methods=["DELETE"])
+def delete_user(user_id):
+    db_sess = db_session.create_session()
+    user = db_sess.get(User, user_id)
+    if not user:
+        raise NotFound()
+    db_sess.delete(user)
+    db_sess.commit()
+    return jsonify({'success': 'OK'})
+
+
 @users_api.route("/<path:_>", methods=["GET", "DELETE", "PUT"])
 def handle_invalid_path(_):
     raise BadRequest()

@@ -15,19 +15,19 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <h1>Миссия Колонизация Марса</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h1 class="ms-3">Миссия Колонизация Марса</h1>
+        <div class="navbar-nav ms-auto mx-3">
             {% if current_user.is_authenticated %}
-                <a class="navbar-brand" href="/logout">{{ current_user.name }}</a>
+                <a class="nav-item nav-link" href="/logout">{{ current_user.name }} {{ current_user.surname }}</a>
             {% else %}
                 <div>
-                    <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
-                    <a class="btn btn-success" href="/login">Войти</a>
+                    <a class="nav-item btn btn-primary " href="/register">Зарегистрироваться</a>
+                    <a class="nav-item btn btn-success" href="/login">Войти</a>
                 </div>
             {% endif %}
-            <a class="navbar-brand" href="#">MarsOne</a>
         </div>
+        <a class="navbar-brand" href="#">MarsOne</a>
     </nav>
     <h4>И на Марсе будут яблони цвести!</h4>
 </header>

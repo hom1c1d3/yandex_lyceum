@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from data import db_session
-from data.jobs import Jobs
+from data.jobs import Jobs, Category
 from data.users import User
 from data.departments import Department
 from werkzeug.security import generate_password_hash
@@ -77,6 +77,30 @@ def create_users():
     db_sess.commit()
 
 
+def get_categories_data():
+    categories_data = [
+        {
+            "name": "life support",
+        },
+        {
+            "name": "exploring planet",
+        },
+        {
+            "name": "terraforming",
+        },
+    ]
+    return categories_data
+
+
+def create_categories():
+    db_sess = db_session.create_session()
+    categories = get_categories_data()
+    for category_data in categories:
+        category = Category(**category_data)
+        db_sess.add(category)
+    db_sess.commit()
+
+
 def get_jobs_data():
     jobs_data = [
         {
@@ -85,6 +109,7 @@ def get_jobs_data():
             "work_size": 15,
             "collaborators": "2, 3",
             "start_date": datetime.now(),
+            "categories": [1],
             "is_finished": False,
         },
         {
@@ -93,6 +118,7 @@ def get_jobs_data():
             "work_size": 15,
             "collaborators": "4, 3",
             "start_date": datetime.now(),
+            "categories": [2],
             "is_finished": False,
         },
         {
@@ -101,6 +127,7 @@ def get_jobs_data():
             "work_size": 25,
             "collaborators": "5",
             "start_date": datetime.now(),
+            "categories": [1, 3],
             "is_finished": False,
         },
         {
@@ -109,6 +136,7 @@ def get_jobs_data():
             "work_size": 20,
             "collaborators": "2, 5",
             "start_date": datetime.now(),
+            "categories": [1],
             "is_finished": True,
         },
     ]
@@ -119,7 +147,14 @@ def create_jobs():
     db_sess = db_session.create_session()
     jobs = get_jobs_data()
     for job_data in jobs:
+        categories_id = job_data.pop("categories")
+        categories = []
+        for category_id in categories_id:
+            category = db_sess.get(Category, category_id)
+            categories.append(category)
         job = Jobs(**job_data)
+        for category in categories:
+            job.categories.append(category)
         db_sess.add(job)
     db_sess.commit()
 
@@ -171,5 +206,6 @@ def create_departments():
 
 def add_data_to_db():
     create_users()
+    create_categories()
     create_jobs()
     create_departments()

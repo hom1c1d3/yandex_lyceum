@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Adding department</h1>
+
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+
+        {{ form.title.label }}
+        {{ form.title(class="form-control") }}
+        {% for error in form.title.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+        {{ form.chief_id.label }}
+        {{ form.chief_id(class="form-control") }}
+        {% for error in form.chief_id.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+        {{ form.members.label }}
+        {{ form.members(class="form-control") }}
+        {% for error in form.members.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+        {{ form.email.label }}
+        {{ form.email(class="form-control", type="email") }}
+        {% for error in form.email.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    <div class="form-group">{{ form.submit(type="submit", class="btn btn-primary") }}</div>
+
+</form>
+
+{% endblock %}

@@ -4,7 +4,10 @@
 
 <h2 align="center">Works log</h2>
 {% if current_user.is_authenticated %}
-    <a href="news" class="btn btn-primary mt-3 mb-4">Добавить новость</a>
+<div>
+    <a href="/add-job" class="btn btn-primary mt-3 mb-4">Добавить Работу</a>
+    <a href="/departments" class="btn btn-primary mt-3 mb-4">Департаменты</a>
+</div>
 {% endif %}
 {% for job in jobs %}
     <div class="mb-3 job">
@@ -13,7 +16,7 @@
         <thead class="table-secondary">
             <tr>
                 {% for header in ["Title of activity", "Team leader", "Duration",
-                "List of collaborators", "Is finished"] %}
+                "List of collaborators", "Hazard category", "Is finished"] %}
                     <th scope="col" class="col-md-auto">{{ header }}</th>
                 {% endfor %}
             </tr>
@@ -24,6 +27,9 @@
                 <td class="table-primary">{{ job.team_leader.name }} {{ job.team_leader.surname }}</td>
                 <td class="table-primary">{{ job.work_size }} Hours</td>
                 <td class="table-primary">{{ job.collaborators }}</td>
+                <td class="table-primary">
+                    {{ job.categories | map(attribute="name") | join(", ") }}
+                </td>
                 {% if job.is_finished %}
                     <td class="table-success">Finished</td>
                 {% else %}

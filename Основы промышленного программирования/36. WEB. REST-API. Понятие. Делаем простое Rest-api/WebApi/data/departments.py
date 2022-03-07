@@ -10,7 +10,7 @@ class Department(SqlAlchemyBase):  # SqlAlchemyBase Доступно в зада
     chief_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
     chief = orm.relationship("User")
     members = sa.Column(sa.String)
-    email = sa.Column(sa.String)
+    email = sa.Column(sa.String, unique=True)
 
     def __repr__(self):
         return f"<Department {self.id} {self.title}>"

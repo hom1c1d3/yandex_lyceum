@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 align="center">List of departments</h2>
+{% if current_user.is_authenticated %}
+<div>
+    <a href="/work-log" class="btn btn-primary mt-3 mb-4">Работы</a>
+    <a href="/add-department" class="btn btn-primary mt-3 mb-4">Добавить Департаменты</a>
+</div>
+{% endif %}
+{% for department in departments %}
+    <div class="mb-3 job">
+    <h3>Department #{{ department.id }}</h3>
+    <table class="table works mb-1" style="table-layout: fixed;">
+        <thead class="table-secondary">
+            <tr>
+                {% for header in ["Title of departament", "Chief", "Members", "Department email"] %}
+                    <th scope="col" class="col-md-auto">{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="align-middle">
+                <td class="table-primary">{{ department.title }}</td>
+                <td class="table-primary">{{ department.chief.name }} {{ department.chief.surname }}</td>
+                <td class="table-primary">{{ department.members }}</td>
+                <td class="table-primary">{{ department.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% if current_user.is_authenticated and (current_user == department.chief or current_user.id == 1) %}
+        <div>
+            <a href="/edit-department/{{ department.id }}" class="btn btn-warning">
+                Изменить
+            </a>
+            <a href="/delete-department/{{ department.id }}" class="btn btn-danger">
+                Удалить
+            </a>
+        </div>
+    {% endif %}
+    </div>
+{% endfor %}
+
+{% endblock %}

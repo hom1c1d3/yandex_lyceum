@@ -70,7 +70,7 @@ def add_job():
         db_sess = db_session.create_session()
         job = Jobs(
             job=form.job.data,
-            team_leader=form.team_leader.data,
+            team_leader_id=form.team_leader.data,
             work_size=form.work_size.data,
             collaborators=form.collaborators.data,
             is_finished=form.is_finished.data

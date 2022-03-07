@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from werkzeug.exceptions import BadRequest
+from werkzeug.exceptions import BadRequest, NotFound
 
 from . import db_session
 from .users import User
@@ -13,6 +13,17 @@ def get_users():
     users = db_sess.query(User).all()
     return jsonify(
         {"users": [user.to_dict() for user in users]}
+    )
+
+
+@users_api.route("/<int:user_id>")
+def get_user(user_id):
+    db_sess = db_session.create_session()
+    user: User = db_sess.get(User, user_id)
+    if not user:
+        raise NotFound()
+    return jsonify(
+        {"users": [user.to_dict()]}
     )
 
 

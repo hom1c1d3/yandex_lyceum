@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, render_template, redirect, flash, request, abort, url_for
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from werkzeug.exceptions import NotFound, BadRequest
 
 from data import db_session
 from data.departments import Department
@@ -200,8 +201,33 @@ def delete_department(department_id):
 @app.route("/users_show/<int:user_id>")
 def users_show(user_id):
     resp = requests.get(f'{request.host_url}{url_for("users_api.get_user", user_id=user_id)}')
+    if not resp:
+        raise NotFound(resp.json()["error"])
     user = resp.json()["users"][0]
-    map_url = "https://static-maps.yandex.ru/1.x/?ll=37.677751,55.757718&spn=0.016457,0.00619&l=map"
+    user_city = user["city_from"]
+    geocoder_params = {
+        "apikey": "40d1649f-0493-4b70-98ba-98533de7710b",
+        "geocode": user_city,
+        "format": "json"
+    }
+    geocode_resp = requests.get("http://geocode-maps.yandex.ru/1.x/", params=geocoder_params)
+    if not geocode_resp:
+        raise BadRequest(
+            f"Ошибка geocoder. Статус: {geocode_resp.status_code}. {geocode_resp.reason}")
+    geocode_json = geocode_resp.json()
+    try:
+        point = geocode_json["response"]["GeoObjectCollection"]["featureMember"][0][
+            "GeoObject"]["Point"]["pos"]
+    except (KeyError, IndexError):
+        raise NotFound()
+    point = ",".join(point.split())
+    map_static_params = {
+        "ll": point,
+        "l": "sat",
+        "z": 13,
+    }
+    map_url = requests.Request(url="https://static-maps.yandex.ru/1.x/",
+                               params=map_static_params).prepare().url
     return render_template("user_city.html", user_data=user, map_url=map_url)
 
 

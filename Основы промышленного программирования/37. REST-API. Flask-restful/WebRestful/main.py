@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, render_template, redirect, flash, request, abort, url_for
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from flask_restful import Api
 from werkzeug.exceptions import NotFound, BadRequest
 
 from data import db_session
@@ -8,14 +9,15 @@ from data.departments import Department
 from data.jobs import Jobs
 from data.jobs_api import jobs_api
 from data.users import User
-from data.users_api import users_api
+from data.user_resources import init_api_routes
 from forms.departments import AddDepartmentForm
 from forms.jobs import AddJobForm
 from forms.users import RegisterForm, LoginForm
 
 app = Flask(__name__)
-login_manager = LoginManager(app)
 app.config["SECRET_KEY"] = "SECRETTOKEN"
+login_manager = LoginManager(app)
+api = Api(app)
 
 
 @login_manager.user_loader
@@ -253,7 +255,7 @@ def index():
 def main():
     db_session.global_init("db/mars.db")
     app.register_blueprint(jobs_api)
-    app.register_blueprint(users_api)
+    init_api_routes(api)
     app.run("", port=8080)
 
 

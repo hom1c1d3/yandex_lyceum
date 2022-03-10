@@ -251,7 +251,7 @@ def index():
 
 
 def main():
-    db_session.global_init("db/blogs.db")
+    db_session.global_init("db/mars.db")
     app.register_blueprint(jobs_api)
     app.register_blueprint(users_api)
     app.run("", port=8080)

@@ -11,3 +11,4 @@ Pillow==8.3.2
 flask-login==0.5.0
 sqlalchemy-serializer==1.4.1
 pytest==7.0.1
+alembic==1.7.6

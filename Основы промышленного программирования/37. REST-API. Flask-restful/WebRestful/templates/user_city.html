@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center">Nostalgy</h2>
+<h3 class="text-center">{{ user_data['name'] }} {{ user_data['surname'] }}</h3>
+<h5 class="text-center">Hometown {{ user_data['city_from'] }}</h5>
+<img class="rounded mx-auto d-block" src="{{ map_url }}">
+
+{% endblock %}

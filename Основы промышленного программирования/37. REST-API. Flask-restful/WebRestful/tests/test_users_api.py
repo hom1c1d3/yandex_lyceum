@@ -4,7 +4,7 @@ import requests
 from werkzeug.security import generate_password_hash
 
 BASE_URL = "http://127.0.0.1:8080"
-API_VERSION = "api/v2"
+API_VERSION = "api"
 
 
 def test_get_all_users():

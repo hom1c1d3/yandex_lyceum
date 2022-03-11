@@ -2,8 +2,8 @@ from flask import jsonify
 from flask_restful import Resource, abort, Api
 
 from . import db_session
-from .users import User
 from .reqparse_user import parser
+from .users import User
 
 
 def abort_missing_user(user_id):
@@ -28,6 +28,23 @@ class UserResource(Resource):
         db_sess = db_session.create_session()
         user = db_sess.get(User, user_id)
         db_sess.delete(user)
+        db_sess.commit()
+        return jsonify({'success': 'OK'})
+
+    def put(self, user_id):
+        abort_missing_user(user_id)
+        args = parser.parse_args()
+        db_sess = db_session.create_session()
+        user = db_sess.get(User, user_id)
+        user.surname = args["surname"]
+        user.name = args["name"]
+        user.age = args["age"]
+        user.position = args["position"]
+        user.speciality = args["speciality"]
+        user.address = args["address"]
+        user.email = args["email"]
+        user.hashed_password = args["hashed_password"]
+        user.modified_date = args.get("modified_date")
         db_sess.commit()
         return jsonify({'success': 'OK'})
 

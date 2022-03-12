@@ -9,7 +9,8 @@ from data.departments import Department
 from data.jobs import Jobs
 from data.jobs_api import jobs_api
 from data.users import User
-from data.user_resources import init_api_routes
+from data import user_resources
+from data import job_resources
 from forms.departments import AddDepartmentForm
 from forms.jobs import AddJobForm
 from forms.users import RegisterForm, LoginForm
@@ -255,7 +256,8 @@ def index():
 def main():
     db_session.global_init("db/mars.db")
     app.register_blueprint(jobs_api)
-    init_api_routes(api)
+    user_resources.init_api_routes(api)
+    job_resources.init_api_routes(api)
     app.run("", port=8080)
 
 

@@ -13,7 +13,7 @@ def abort_missing_user(user_id):
         abort(404, message=f"User {user_id} Not Found")
 
 
-class UserResource(Resource):
+class UsersResource(Resource):
 
     def get(self, user_id):
         abort_missing_user(user_id)
@@ -79,5 +79,5 @@ class UsersListResource(Resource):
 
 def init_api_routes(api: Api):
     url_prefix = "/api/v2/users"
-    api.add_resource(UserResource, f"{url_prefix}/<int:user_id>")
+    api.add_resource(UsersResource, f"{url_prefix}/<int:user_id>")
     api.add_resource(UsersListResource, url_prefix)

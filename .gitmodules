@@ -28,3 +28,6 @@
 [submodule "TeacherAndParent"]
 	path = Основы промышленного программирования/TeacherAndParent
 	url = https://github.com/BearForesterSmallBeef/TeacherAndParent
+[submodule "yxtst"]
+    path = Основы промышленного программирования/38. WEB. Разворачиваем проект в облаке. Дорешка/Uchebnik/Web
+    url = https://github.com/TheMerret/yxtst

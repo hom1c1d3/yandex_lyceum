@@ -2,14 +2,16 @@ import logging
 
 
 logging.basicConfig(
-    filename="logging_test.log",
-    format="%(asctime)s %(levelname)s %(name)s %(message)s"
+    level=logging.WARNING
 )
 
 
 def log():
-    for i in range(10):
-        logging.warning(i)
+    logging.debug("Debug")
+    logging.info("Info")
+    logging.warning("Warning")
+    logging.error("Error")
+    logging.critical("Critical")
 
 
 if __name__ == '__main__':

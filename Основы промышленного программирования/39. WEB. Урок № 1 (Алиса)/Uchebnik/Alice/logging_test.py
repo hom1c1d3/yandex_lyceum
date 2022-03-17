@@ -2,7 +2,7 @@ import logging
 
 
 logging.basicConfig(
-    filename="test.log",
+    filename="logging_test.log",
     format="%(asctime)s %(levelname)s %(name)s %(message)s"
 )
 

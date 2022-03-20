@@ -31,3 +31,6 @@
 [submodule "yxtst"]
 	path = Основы промышленного программирования/38. WEB. Разворачиваем проект в облаке. Дорешка/Uchebnik/Web
 	url = https://github.com/TheMerret/yxtst
+[submodule "btfe"]
+	path = Основы промышленного программирования/39. WEB. Урок № 1 (Алиса)/AliceElephant
+	url = https://github.com/TheMerret/btfe

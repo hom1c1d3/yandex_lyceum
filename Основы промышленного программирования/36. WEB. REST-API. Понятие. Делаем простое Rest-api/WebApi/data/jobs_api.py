@@ -33,15 +33,14 @@ def get_job(job_id):
 def create_job():
     if not request.json:
         raise BadRequest("Empty request")
-    allowed_fields = ["team_leader_id", "job", "work_size", "collaborators", "start_date",
-                      "end_date", "is_finished"]
+    allowed_fields = ["id", "team_leader_id", "job", "work_size", "collaborators", "is_finished"]
     if not all(key in request.json for key in allowed_fields):
         raise BadRequest("Missing fields")
     db_sess = db_session.create_session()
-    start_date = request.json["start_date"]
+    start_date = request.json.get("start_date")
     if start_date:
         start_date = datetime.fromisoformat(start_date)
-    end_date = request.json["end_date"]
+    end_date = request.json.get("end_date")
     if end_date:
         end_date = datetime.fromisoformat(end_date)
     job = Jobs(
@@ -104,7 +103,7 @@ def edit_job(job_id):
 
 @jobs_api.route("/<path:_>", methods=["GET", "DELETE", "PUT"])
 def handle_invalid_path(_):
-    raise BadRequest()
+    raise NotFound()
 
 
 @jobs_api.errorhandler(404)

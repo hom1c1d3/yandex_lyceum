@@ -34,3 +34,6 @@
 [submodule "btfe"]
 	path = Основы промышленного программирования/39. WEB. Урок № 1 (Алиса)/AliceElephant
 	url = https://github.com/TheMerret/btfe
+[submodule "alice_guesser"]
+	path = Основы промышленного программирования/40. WEB. Урок № 2 (Алиса)/AliceGuesser
+	url = https://github.com/TheMerret/alice_guesser

@@ -37,3 +37,6 @@
 [submodule "alice_guesser"]
 	path = Основы промышленного программирования/40. WEB. Урок № 2 (Алиса)/AliceGuesser
 	url = https://github.com/TheMerret/alice_guesser
+[submodule "alice_geo"]
+	path = Основы промышленного программирования/40. WEB. Урок № 2 (Алиса)/AliceGeo
+	url = https://github.com/TheMerret/alice_geo

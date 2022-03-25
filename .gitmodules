@@ -40,3 +40,6 @@
 [submodule "alice_geo"]
 	path = Основы промышленного программирования/40. WEB. Урок № 2 (Алиса)/AliceGeo
 	url = https://github.com/TheMerret/alice_geo
+[submodule "alice_t9n"]
+	path = основы промышленного программирования/40. WEB. рок  2 (лиса)/AliceTranslate
+	url = https://github.com/TheMerret/alice_t9n

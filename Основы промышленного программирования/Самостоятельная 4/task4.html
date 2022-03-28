@@ -1,0 +1,123 @@
+<div class="y4ef2d--task-description-opener__sideblock">
+    <section class="y6c2ac--task-description">
+        <header class="y6c2ac--task-description__header"><h1
+                class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">Ничего не
+            пропустить</h1></header>
+        <div class="y6c2ac--task-description__content-wrapper">
+            <article class="y6c2ac--task-description__content"><p></p>
+                <div class="problem-statement">
+                    <div class="header">
+                        <h1 class="title">Ничего не пропустить</h1>
+                        <table>
+                            <tbody>
+                            <tr class="time-limit">
+                                <td class="property-title">Ограничение времени</td>
+                                <td>10&nbsp;секунд</td>
+                            </tr>
+                            <tr class="memory-limit">
+                                <td class="property-title">Ограничение памяти</td>
+                                <td>64Mb</td>
+                            </tr>
+                            <tr class="input-file">
+                                <td class="property-title">Ввод</td>
+                                <td colspan="1">стандартный ввод</td>
+                            </tr>
+                            <tr class="output-file">
+                                <td class="property-title">Вывод</td>
+                                <td colspan="1">стандартный вывод</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2></h2>
+                    <div class="legend"><!--l. 47-->
+                        <p style="text-indent: 0em;">Паспарту осматривал Бомбей. Он жадно всё разглядывал и старался
+                            ничего не пропустить. <br>Разинув рот, молодой француз таращил глаза на персов в
+                            остроконечных шапках, на торговцев-банианов в круглых тюрбанах, на парсов в чёрных митрах,
+                            армян в длиннополой, до пят одежде. Никогда ещё он не видел ничего подобного и так увлёкся,
+                            что едва не забыл про время. <br> <!--l. 50--></p>
+                        <p style="text-indent: 0em;">Напишите класс-гид по городам Индии. <br> <!--l. 52--></p>
+                        <p style="text-indent: 0em;">Экземпляр класса <span
+                                style="font-weight: bold;">VisitBombay </span>при инициализации получает имя файла с
+                            базой данных, структура которой показана на рисунке. <br> <!--l. 54--></p>
+                        <p style="text-indent: 0em;"><img alt="PIC"
+                                                          src="https://contest.yandex.ru/testsys/statement-image?imageId=64b268a5030059b4076ec605b55bd868208b537de75b660f9ce08ca097606182"><br>
+                            <!--l. 56--></p>
+                        <p style="text-indent: 0em;">Таблицы и названия полей базы данных: <br><span
+                                style="font-style: italic;">registry (id, name, town_id, type_id, duration, cost) </span><br><span
+                                style="font-style: italic;">towns (id, town) </span><br><span
+                                style="font-style: italic;">attractions (id, type) </span><br> <!--l. 61--></p>
+                        <p style="text-indent: 0em;">Класс обеспечивает работу методов: <br><span
+                                style="font-style: italic;">selection() </span>– метод принимает название города и тип
+                            достопримечательности, а возвращает список строк: название, время, стоимость (в одну строку
+                            через запятую и пробел) в порядке увеличения продолжительности экскурсии (<span
+                                    style="font-style: italic;">duration</span>), затем по названию по алфавиту; если
+                            ничего не нашлось, нужно вернуть список с одним значением <span style="font-style: italic;">None</span>.
+                            <br><span style="font-style: italic;">interest() </span>– метод принимает тип
+                            достопримечательности, а возвращает список кортежей (город, название), сортировка по кортежу
+                            в обратном алфавитном порядке.</p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <h3>Пример 1</h3>
+                    <table class="sample-tests">
+                        <thead>
+                        <tr>
+                            <th>Ввод</th>
+                            <th>Вывод</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+<pre>vb = VisitBombay("places.db")
+print(*vb.selection("Delhi", "building"), sep="\n")
+</pre>
+                            </td>
+                            <td>
+<pre>India Gate, 30, 150
+Lotus Temple, 30, 100
+Akshardham, 40, 150
+Mahabodhi, 45, 100
+</pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h3>Пример 2</h3>
+                    <table class="sample-tests">
+                        <thead>
+                        <tr>
+                            <th>Ввод</th>
+                            <th>Вывод</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+<pre>vb = VisitBombay("places.db")
+print(*vb.interest("palace"), sep="\n")
+</pre>
+                            </td>
+                            <td>
+<pre>('Rajastan', 'Mehrangarh')
+('Mysore', 'Mysore Palace')
+('Agra', 'Lake Palace')
+</pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h2>Примечания</h2>
+                    <div class="notes"><!--l. 66-->
+                        <p style="text-indent: 0em;">Базу данных из примеров можно скачать <a
+                                href="https://lyceum.s3.yandex.net/content/sr/21sr4d2/4/places.db">здесь</a></p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

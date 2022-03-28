@@ -1,0 +1,125 @@
+<div class="y4ef2d--task-description-opener__sideblock">
+    <section class="y6c2ac--task-description">
+        <header class="y6c2ac--task-description__header"><h1
+                class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">Выигрыш</h1></header>
+        <div class="y6c2ac--task-description__content-wrapper">
+            <article class="y6c2ac--task-description__content"><p></p>
+                <div class="problem-statement">
+                    <div class="header">
+                        <h1 class="title">Выигрыш</h1>
+                        <table>
+                            <tbody>
+                            <tr class="time-limit">
+                                <td class="property-title">Ограничение времени</td>
+                                <td>10&nbsp;секунд</td>
+                            </tr>
+                            <tr class="memory-limit">
+                                <td class="property-title">Ограничение памяти</td>
+                                <td>64Mb</td>
+                            </tr>
+                            <tr class="input-file">
+                                <td class="property-title">Ввод</td>
+                                <td colspan="1">стандартный ввод</td>
+                            </tr>
+                            <tr class="output-file">
+                                <td class="property-title">Вывод</td>
+                                <td colspan="1">стандартный вывод</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2></h2>
+                    <div class="legend">
+                        <p>В субботу, 20 октября, в половине пятого пополудни пароход вошёл в порт Бомбей – на два дня
+                            раньше срока. <br>Мистер Фогг выплатил капитану обещанное вознаграждение, методично записал
+                            в своём путевом блокноте эти два дня в графу выигрышей и сошёл на берег. </p>
+                        <p>Напишите функцию, подводящую итог выигрышей и проигрышей. </p>
+                        <p>Функция <span style="font-weight: bold;">prize()</span> принимает два позиционных аргумента –
+                            хост и порт сервера и произвольное число именованных параметров: названия пароходов и даты
+                            их прибытия в порт назначения. <br>На сервере по указанному адресу находится словарь с
+                            ключами – пароходами и значениями – датами прибытия по расписанию. </p>
+                        <p>Функция возвращает словарь: ключи – пароходы, указанные в аргументах функции, а значения –
+                            выигрыш или проигрыш в днях, проигрыш – отрицательное значение. Даты в пределах одного
+                            месяца. Если пароход пришел по расписанию, такой ключ создавать не нужно.</p>
+                    </div>
+                    <h3>Пример 1</h3>
+                    <table class="sample-tests">
+                        <thead>
+                        <tr>
+                            <th>Ввод</th>
+                            <th>Вывод</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+<pre># Пример запуска функции:
+server = ["127.0.0.1", 5000]
+data = {
+    "Carnatic": "25.07",
+    "Magnolia": "08.08",
+    "Mongolia": "09.08",
+    "Beth": "26.07"
+}
+print(prize(*server, **data))
+# Данные на сервере:
+{
+    "Carnatic": "27.07",
+    "Magnolia": "08.08",
+    "Mongolia": "01.08",
+    "Beth": "25.07",
+    "Bay": "19.01"
+}
+</pre>
+                            </td>
+                            <td>
+<pre>{
+    "Carnatic": -2,
+    "Mongolia": 8,
+    "Beth": 1
+}</pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h3>Пример 2</h3>
+                    <table class="sample-tests">
+                        <thead>
+                        <tr>
+                            <th>Ввод</th>
+                            <th>Вывод</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+<pre># Пример запуска функции:
+server = ["127.0.0.1", 8800]
+data = {
+    "Hawaii": "31.12",
+    "Havana": "05.09",
+    "Win": "12.12",
+    "North": "07.03"
+}
+print(prize(*server, **data))
+# Данные на сервере:
+{
+    "Pole": "05.06",
+    "North": "07.03",
+    "Win": "12.12",
+    "Hawaii": "31.12",
+    "Havana": "05.09"
+}
+</pre>
+                            </td>
+                            <td>
+                                <pre>{}</pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

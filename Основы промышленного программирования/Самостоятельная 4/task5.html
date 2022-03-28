@@ -1,0 +1,141 @@
+<div class="y4ef2d--task-description-opener__sideblock">
+    <section class="y6c2ac--task-description">
+        <header class="y6c2ac--task-description__header"><h1
+                class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">Оскорбление</h1>
+        </header>
+        <div class="y6c2ac--task-description__content-wrapper">
+            <article class="y6c2ac--task-description__content"><p></p>
+                <div class="problem-statement">
+                    <div class="header">
+                        <h1 class="title">Оскорбление</h1>
+                        <table>
+                            <tbody>
+                            <tr class="time-limit">
+                                <td class="property-title">Ограничение времени</td>
+                                <td>10&nbsp;секунд</td>
+                            </tr>
+                            <tr class="memory-limit">
+                                <td class="property-title">Ограничение памяти</td>
+                                <td>64Mb</td>
+                            </tr>
+                            <tr class="input-file">
+                                <td class="property-title">Ввод</td>
+                                <td colspan="1">стандартный ввод</td>
+                            </tr>
+                            <tr class="output-file">
+                                <td class="property-title">Вывод</td>
+                                <td colspan="1">стандартный вывод</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2></h2>
+                    <div class="legend"><!--l. 47-->
+                        <p style="text-indent: 0em;">Увы, Паспарту не знал, что в храм нельзя входить в обуви, её
+                            полагалось снимать перед входом, как и не знал того, что британские власти строго наказывали
+                            всякого, кто оскорблял религиозные чувства жителей Индии. Словом, без каких-либо дурных
+                            мыслей он вошёл в храм, восхитился его великолепными орнаментами, но внезапно оказался на
+                            полу. <br> <!--l. 49--></p>
+                        <p style="text-indent: 0em;">Напишите программу для записи правил разных стран. <br>
+                            <!--l. 51--></p>
+                        <p style="text-indent: 0em;">Через аргументы командной строки передаются: <br>хост (<span
+                                style="font-style: italic;">address</span>) и порт (<span style="font-style: italic;">port</span>)
+                            сервера, <br>имя файла <span style="font-style: italic;">json </span>(<span
+                                    style="font-style: italic;">ﬁlename</span>) с данными, <br>параметр (<span
+                                    style="font-style: italic;">type</span>) запроса – <span
+                                    style="font-style: italic;">crime</span>, <span style="font-style: italic;">administrative </span>или
+                            <span style="font-style: italic;">none</span>. <br> <!--l. 56--></p>
+                        <p style="text-indent: 0em;">В файле находится список словарей с ключами: <br><span
+                                style="font-style: italic;">country </span>(страна); <br><span
+                                style="font-style: italic;">rule </span>(правило); <br><span
+                                style="font-style: italic;">punishment </span>(уголовное наказание, административное или
+                            нет наказания). <br> <!--l. 61--></p>
+                        <p style="text-indent: 0em;">Напишите приложение на <span
+                                style="font-style: italic;">ﬂask</span>, которое при обращении по адресу <span
+                                style="font-style: italic;">http://address:port/offense </span>возвращает словарь в
+                            формате <span style="font-style: italic;">json</span>, содержание которого зависит от
+                            значения параметра <span style="font-style: italic;">type</span>: <br>если значение <span
+                                    style="font-style: italic;">crime</span>, то выбираются правила, за которые
+                            предусмотрено уголовное наказание, если <span
+                                    style="font-style: italic;">administrative</span>, то административное, иначе нет
+                            наказания. <br>Ключи словаря – страны, значения – списки правил, по которым предусмотрен
+                            соответствующий тип наказания, порядок алфавитный.</p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <h2>Пример</h2>
+                    <table class="sample-tests">
+                        <thead>
+                        <tr>
+                            <th>Ввод</th>
+                            <th>Вывод</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+<pre># Пример запуска:
+python3 solution.py --address 127.0.0.1 --port 5000 --filename rules.json --type crime
+# Содержимое файла rules.json:
+[
+    {
+        "country": "India",
+        "rule": "do not enter the temple in shoes",
+        "punishment": "crime"
+    },
+    {
+        "country": "Pakistan",
+        "rule": "bring gifts",
+        "punishment": "none"
+    },
+    {
+        "country": "India",
+        "rule": "cover your head",
+        "punishment": "crime"
+    },
+    {
+        "country": "India",
+        "rule": "hand over the equipment",
+        "punishment": "administrative"
+    },
+    {
+        "country": "Pakistan",
+        "rule": "long clothes",
+        "punishment": "crime"
+    },
+    {
+        "country": "Pakistan",
+        "rule": "behave quietly",
+        "punishment": "crime"
+    }
+]
+</pre>
+                            </td>
+                            <td>
+<pre>{
+    "India": [
+        "cover your head",
+        "do not enter the temple in shoes"
+    ],
+    "Pakistan": [
+        "behave quietly",
+        "long clothes"
+    ]
+}
+</pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h2>Примечания</h2>
+                    <div class="notes"><!--l. 66-->
+                        <p style="text-indent: 0em;">JSON файл из примера можно скачать <a
+                                href="https://lyceum.s3.yandex.net/content/sr/21sr4d2/5/rules.json">здесь</a></p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

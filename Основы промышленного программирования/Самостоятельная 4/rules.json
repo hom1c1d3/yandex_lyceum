@@ -1,0 +1,32 @@
+[
+    {
+        "country": "India",
+        "rule": "do not enter the temple in shoes",
+        "punishment": "crime"
+    },
+    {
+        "country": "Pakistan",
+        "rule": "bring gifts",
+        "punishment": "none"
+    },
+    {
+        "country": "India",
+        "rule": "cover your head",
+        "punishment": "crime"
+    },
+    {
+        "country": "India",
+        "rule": "hand over the equipment",
+        "punishment": "administrative"
+    },
+    {
+        "country": "Pakistan",
+        "rule": "long clothes",
+        "punishment": "crime"
+    },
+    {
+        "country": "Pakistan",
+        "rule": "behave quietly",
+        "punishment": "crime"
+    }
+]

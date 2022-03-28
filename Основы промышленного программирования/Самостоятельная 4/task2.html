@@ -1,0 +1,151 @@
+<div class="y4ef2d--task-description-opener__sideblock">
+    <section class="y6c2ac--task-description">
+        <header class="y6c2ac--task-description__header"><h1
+                class="heading heading_level_1 heading_smaller y6c2ac--task-description__heading">На всех парах</h1>
+        </header>
+        <div class="y6c2ac--task-description__content-wrapper">
+            <article class="y6c2ac--task-description__content"><p></p>
+                <div class="problem-statement">
+                    <div class="header">
+                        <h1 class="title">На всех парах</h1>
+                        <table>
+                            <tbody>
+                            <tr class="time-limit">
+                                <td class="property-title">Ограничение времени</td>
+                                <td>1&nbsp;секунда</td>
+                            </tr>
+                            <tr class="memory-limit">
+                                <td class="property-title">Ограничение памяти</td>
+                                <td>64Mb</td>
+                            </tr>
+                            <tr class="input-file">
+                                <td class="property-title">Ввод</td>
+                                <td colspan="1">стандартный ввод</td>
+                            </tr>
+                            <tr class="output-file">
+                                <td class="property-title">Вывод</td>
+                                <td colspan="1">weather.json</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2></h2>
+                    <div class="legend"><!--l. 47-->
+                        <p style="text-indent: 0em;">Тем временем «Монголия» неслась на всех парах по волнам Красного
+                            моря к Адену. Филеас Фогг не обращал внимания на штормовую погоду, а уж как перед самым
+                            отплытием из Суэца на пароход торопливо поднялся сыщик Фикс, и вовсе не заметил. <br>
+                            <!--l. 49--></p>
+                        <p style="text-indent: 0em;">Напишите программу для записи прогноза погоды по пути
+                            следования.</p>
+                        <p></p>
+                    </div>
+                    <h2>Формат ввода</h2>
+                    <div class="input-specification"><!--l. 53-->
+                        <p style="text-indent: 0em;">Вводится имя файла csv с информацией о погоде, заголовки файла
+                            (разделители ̂): <br><span
+                                    style="font-style: italic;">id, дата, время, погода </span><br><span
+                                    style="font-style: italic;">id, date, time, weather</span></p>
+                    </div>
+                    <h2>Формат вывода</h2>
+                    <div class="output-specification"><!--l. 59-->
+                        <p style="text-indent: 0em;">В файл <span style="font-weight: bold;">weather.json </span>запишите
+                            словарь с ключами – датами и значениями – списками видов погоды в обратном алфавитном
+                            порядке.</p>
+                    </div>
+                    <h3>Пример 1</h3>
+                    <table class="sample-tests">
+                        <thead>
+                        <tr>
+                            <th>Ввод</th>
+                            <th>Вывод</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+<pre># Содержимое stdin:
+full_steam.csv
+# Содержимое файла full_steam.csv:
+id^date^time^weather
+1^28/07^6^fog
+2^5/10^7^cloudy
+3^28/07^7^cloudy
+4^28/07^17^windy
+5^5/10^7^storm
+6^5/10^5^sunny
+7^28/07^5^partly cloudy
+8^28/07^7^rain
+9^5/10^7^heavy rain
+</pre>
+                            </td>
+                            <td>
+<pre># Содержимое файла weather.json:
+{
+    "28/07": [
+        "windy",
+        "rain",
+        "partly cloudy",
+        "fog",
+        "cloudy"
+    ],
+    "5/10": [
+        "sunny",
+        "storm",
+        "heavy rain",
+        "cloudy"
+    ]
+}</pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h3>Пример 2</h3>
+                    <table class="sample-tests">
+                        <thead>
+                        <tr>
+                            <th>Ввод</th>
+                            <th>Вывод</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+<pre># Содержимое stdin:
+storm.csv
+# Содержимое файла storm.csv:
+id^date^time^weather
+1^1/01^3^drizzle
+2^1/01^11^frost
+3^2/01^11^snow
+4^1/01^5^heavy snow
+5^1/01^11^cloudy
+</pre>
+                            </td>
+                            <td>
+<pre># Содержимое файла weather.json:
+{
+    "1/01": [
+        "heavy snow",
+        "frost",
+        "drizzle",
+        "cloudy"
+    ],
+    "2/01": [
+        "snow"
+    ]
+}</pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h2>Примечания</h2>
+                    <div class="notes"><!--l. 62-->
+                        <p style="text-indent: 0em;">CSV файлы из примеров: <br><a
+                                href="https://lyceum.s3.yandex.net/content/sr/21sr4d2/2/full_steam.csv">full_steam.csv</a><br><a
+                                href="https://lyceum.s3.yandex.net/content/sr/21sr4d2/2/storm.csv">storm.csv</a></p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

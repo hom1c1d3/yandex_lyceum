@@ -1,12 +1,17 @@
 import os
 
-from telegram import Update, ReplyKeyboardMarkup
+from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import Updater, CallbackContext, MessageHandler, Filters, CommandHandler
 
 TOKEN = os.getenv("TOKEN")
 
 reply_keyboard = [["/address", "/phone"], ["/site", "/work_time"]]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
+
+
+def close_keyboard(update: Update, context: CallbackContext):
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Клавиатура закрыта",
+                             reply_markup=ReplyKeyboardRemove())
 
 
 def echo(update: Update, context: CallbackContext):
@@ -49,6 +54,7 @@ def main():
     dp.add_handler(CommandHandler("phone", phone))
     dp.add_handler(CommandHandler("site", site))
     dp.add_handler(CommandHandler("work_time", work_time))
+    dp.add_handler(CommandHandler("close", close_keyboard))
     updater.start_polling()
     updater.idle()
 
